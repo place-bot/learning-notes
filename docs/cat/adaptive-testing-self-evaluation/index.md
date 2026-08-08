@@ -58,7 +58,7 @@ SE(\widehat{\theta}_i)\le \varepsilon.
 | 7 | [Petersen et al. (2026), *Evaluating the Use of Prior Information to Individualise Start Item Selection for the EORTC CAT Core*](petersen-et-al-2026.md) | 用已经完成的另一个生活质量领域预测目标领域位置，只据此选择第一题；第一题后恢复原有 CAT，直接检验轻量个性化首题的效果边界 | **已完成精读** |
 | 8 | [Bass et al. (2026), *Brief Reports: Impact of Informed Starting Value on Longitudinal Computer Adaptive Tests in PROMIS Assessments*](bass-et-al-2026.md) | 以第一次 PROMIS CAT 的最终分数构造第二次测量的个体化 prior，并系统改变 prior 标准差，检验小变化、大变化与题库覆盖如何共同决定题量和 RMSE | **已完成精读** |
 
-八篇核心文献和三篇补充文献已经全部完成精读：Revuelta（2004）建立静态潜在策略模型，Wise 等人（2005）检验低风险条件中的努力，Arieli-Attali 等人（2019）再把选择策略扩展为随题序变化的潜在状态。下一阶段进入三篇延伸文献，首先阅读“自我适应预考 + CAT”的混合启动架构。
+八篇核心文献和三篇补充文献已经全部完成精读：Revuelta（2004）建立静态潜在策略模型，Wise 等人（2005）检验低风险条件中的努力，Arieli-Attali 等人（2019）再把选择策略扩展为随题序变化的潜在状态。三篇延伸文献已完成第一篇：Frosini 等人（1998）提供“自我适应预考 + 规则式自动考试”的历史架构；下一篇转入 Chang and Ying（1999）的 \(a\)-stratified 方法。
 
 ### 第一篇已经读到什么
 
@@ -138,13 +138,19 @@ CAT 模拟显示，个体化首题的收益主要集中在 1 至 3 题以及远�
 
 ### 三篇已获取的延伸文献
 
-| 文献 | 在研究路线中的位置 |
-|---|---|
-| [Frosini et al. (1998), *Performing Automatic Exams*](https://doi.org/10.1016/S0360-1315(98)00042-6) | 先用一段类似自我适应测验（Self-Adapted Testing, SAT）的预考确定起始难度，再进入计算机化自适应测验（Computerized Adaptive Testing, CAT）；架构上非常接近“先由用户信息启动，再交回 CAT”。 |
-| [Chang and Ying (1999), *a-Stratified Multistage Computerized Adaptive Testing*](https://doi.org/10.1177/01466219922031338) | 导师提到的 a-stratified 基线：早期使用低区分度题，后期保留高区分度题，主要解决题库曝光与安全，而不是利用个体信息解决冷启动。 |
-| [Pitkin and Vispoel (2001), *Differences Between Self-Adapted and Computerized Adaptive Tests: A Meta-Analysis*](https://doi.org/10.1111/j.1745-3984.2001.tb01125.x) | 汇总早期 Self-Adapted Testing 与 Computerized Adaptive Testing 的比较结果，用来判断允许选择对能力估计与测后焦虑的平均影响。 |
+| 文献 | 在研究路线中的位置 | 当前进度 |
+|---|---|---|
+| [Frosini et al. (1998), *Performing Automatic Exams*](frosini-et-al-1998.md) | 先用一段类似自我适应测验（Self-Adapted Testing, SAT）的预考确定起始难度，再进入规则式自适应考试；架构上非常接近“先由用户信息启动，再交回算法”。 | **已完成精读** |
+| [Chang and Ying (1999), *a-Stratified Multistage Computerized Adaptive Testing*](https://doi.org/10.1177/01466219922031338) | 导师提到的 \(a\)-stratified 基线：早期使用低区分度题，后期保留高区分度题，主要解决题库曝光与安全，而不是利用个体信息解决冷启动。 | 待精读 |
+| [Pitkin and Vispoel (2001), *Differences Between Self-Adapted and Computerized Adaptive Tests: A Meta-Analysis*](https://doi.org/10.1111/j.1745-3984.2001.tb01125.x) | 汇总早期 Self-Adapted Testing 与 Computerized Adaptive Testing 的比较结果，用来判断允许选择对能力估计与测后焦虑的平均影响。 | 待精读 |
 
-这三篇已经取得全文。Frosini et al. (1998) 直接补充“如何启动”的证据；Chang and Ying (1999) 是不同机制的基线；Pitkin and Vispoel (2001) 提供整体证据背景。Bass et al. (2026) 因为直接检验纵向 CAT 的 informed starting value，已经移入核心文献。
+这三篇已经取得全文。Frosini et al. (1998) 已补充“如何启动”的历史证据；Chang and Ying (1999) 是不同机制的题库管理基线；Pitkin and Vispoel (2001) 提供整体证据背景。Bass et al. (2026) 因为直接检验纵向 CAT 的 informed starting value，已经移入核心文献。
+
+### 延伸文献第一篇已经读到什么
+
+[Performing Automatic Exams](frosini-et-al-1998.md) 提出两阶段自动考试。预考中，学生逐题选择难度、随机获得该层题目并收到正误反馈；若至少答对一题，正式考试从最高成功难度开始，否则从所选最低难度再降低一级。正式阶段固定六题，根据最近两题的得分组合升、降或保持层级；若即使余题全部答对也无法达到 18/30，则提前终止。
+
+这不是现代 IRT-CAT：系统没有潜在能力估计、个体化 prior、题目信息量或精度停止，难题还被直接赋予更高分值。论文报告系统完成 300 多次考试，并让 100 名学生分别参加人工与自动考试；90% 的分差小于 3 分，但没有共同起点对照、完整一致性统计、题量精度比较或曝光分析。它证明“用户参与启动、算法随后接管”已有历史先例，却没有证明这种启动能缩短 CAT；对本项目最重要的启示是必须把预考题计入总负担，并分开消融难度选择信号与实际作答信号。
 
 ## 后续阅读要回答的问题
 
@@ -155,4 +161,4 @@ CAT 模拟显示，个体化首题的收益主要集中在 1 至 3 题以及远�
 5. 效率收益是否只出现在极端能力或症状水平的受测者身上？
 6. 自主感、焦虑和动机的变化，是否会改变被测构念本身的作答过程？
 
-本专题后续将继续沿着“全程自主选题 - 个体化起点 - 经验先验 - 仅个体化第一题”的顺序整理文献。三篇补充文献已经完成：静态策略、低风险努力和动态状态均已形成独立笔记。下一步转入 Frosini 等人（1998），检查自我适应预考怎样与后续 CAT 串联。
+本专题后续将继续沿着“全程自主选题 - 个体化起点 - 经验先验 - 仅个体化第一题”的顺序整理文献。三篇补充文献已经完成，Frosini 等人（1998）的混合启动架构也已整理。下一步精读 Chang and Ying（1999），检查 \(a\)-stratified CAT 如何在早期保留高区分度题，并把它转化为本项目可消融的选题基线。
