@@ -58,7 +58,7 @@ SE(\widehat{\theta}_i)\le \varepsilon.
 | 7 | [Petersen et al. (2026), *Evaluating the Use of Prior Information to Individualise Start Item Selection for the EORTC CAT Core*](petersen-et-al-2026.md) | 用已经完成的另一个生活质量领域预测目标领域位置，只据此选择第一题；第一题后恢复原有 CAT，直接检验轻量个性化首题的效果边界 | **已完成精读** |
 | 8 | [Bass et al. (2026), *Brief Reports: Impact of Informed Starting Value on Longitudinal Computer Adaptive Tests in PROMIS Assessments*](bass-et-al-2026.md) | 以第一次 PROMIS CAT 的最终分数构造第二次测量的个体化 prior，并系统改变 prior 标准差，检验小变化、大变化与题库覆盖如何共同决定题量和 RMSE | **已完成精读** |
 
-八篇核心文献和三篇补充文献已经全部完成精读：Revuelta（2004）建立静态潜在策略模型，Wise 等人（2005）检验低风险条件中的努力，Arieli-Attali 等人（2019）再把选择策略扩展为随题序变化的潜在状态。三篇延伸文献已完成两篇：Frosini 等人（1998）提供“自我适应预考 + 规则式自动考试”的历史架构，Chang and Ying（1999）解释怎样延后使用高区分度题；下一篇进入 Self-Adapted Testing 与 CAT 的元分析。
+本专题本地已有全文的 14 篇候选文献已经全部完成精读，包括八篇核心文献、三篇补充文献和三篇延伸文献。核心文献回答个体化起点与 prior，补充文献解释受测者的选择过程，延伸文献依次补齐混合启动、\(a\)-stratified 题库管理和 Self-Adapted Testing 与 CAT 的总体证据。
 
 ### 第一篇已经读到什么
 
@@ -142,9 +142,9 @@ CAT 模拟显示，个体化首题的收益主要集中在 1 至 3 题以及远�
 |---|---|---|
 | [Frosini et al. (1998), *Performing Automatic Exams*](frosini-et-al-1998.md) | 先用一段类似自我适应测验（Self-Adapted Testing, SAT）的预考确定起始难度，再进入规则式自适应考试；架构上非常接近“先由用户信息启动，再交回算法”。 | **已完成精读** |
 | [Chang and Ying (1999), *a-Stratified Multistage Computerized Adaptive Testing*](chang-ying-1999.md) | 导师提到的 \(a\)-stratified 基线：早期使用低区分度题，后期保留高区分度题，主要解决题库曝光与安全，而不是利用个体信息解决冷启动。 | **已完成精读** |
-| [Pitkin and Vispoel (2001), *Differences Between Self-Adapted and Computerized Adaptive Tests: A Meta-Analysis*](https://doi.org/10.1111/j.1745-3984.2001.tb01125.x) | 汇总早期 Self-Adapted Testing 与 Computerized Adaptive Testing 的比较结果，用来判断允许选择对能力估计与测后焦虑的平均影响。 | 待精读 |
+| [Pitkin and Vispoel (2001), *Differences Between Self-Adapted and Computerized Adaptive Tests: A Meta-Analysis*](pitkin-vispoel-2001.md) | 汇总早期 Self-Adapted Testing 与 Computerized Adaptive Testing 的比较结果，用来判断允许选择对能力估计与测后焦虑的平均影响。 | **已完成精读** |
 
-这三篇已经取得全文。Frosini et al. (1998) 已补充“如何启动”的历史证据；Chang and Ying (1999) 是不同机制的题库管理基线；Pitkin and Vispoel (2001) 提供整体证据背景。Bass et al. (2026) 因为直接检验纵向 CAT 的 informed starting value，已经移入核心文献。
+三篇延伸文献均已取得全文并完成精读。Frosini et al. (1998) 补充“如何启动”的历史证据；Chang and Ying (1999) 是不同机制的题库管理基线；Pitkin and Vispoel (2001) 提供整体证据背景。Bass et al. (2026) 因为直接检验纵向 CAT 的 informed starting value，已经移入核心文献。
 
 ### 延伸文献第一篇已经读到什么
 
@@ -160,6 +160,14 @@ CAT 模拟显示，个体化首题的收益主要集中在 1 至 3 题以及远�
 
 这篇没有自评或个体化 prior，也不能保证单题最大曝光率。它对本项目的直接启示是把 \(b\) 视为个体位置匹配，把 \(a\) 视为不确定性与题目资源配置问题：准确 prior 可能允许高 \(a\) 题提前使用，错误或模糊 prior 则需要低 \(a\) 探索。后续应消融固定 \(a\) 分层与 posterior-variance-adaptive 分层，并用真实能力处的信息、Bias、RMSE、覆盖率、题量和条件曝光共同验证。
 
+### 延伸文献第三篇已经读到什么
+
+[Differences Between Self-Adapted and Computerized Adaptive Tests](pitkin-vispoel-2001.md) 综合 15 项研究中的 19 个能力比较与 8 个测后焦虑比较。SAT 的能力估计平均比 CAT 高 \(d=.11\)，信度校正后为 .12；测后焦虑平均低 \(d=.18\)，校正后为 .19。两项效应都很小，而且“能力估计更高”既可能来自焦虑或控制感改变，也可能来自选题和计分偏差。元分析没有做中介分析，不能声称焦虑下降造成表现提高。
+
+这份研究综合也没有合并题量、标准误、用时或曝光。讨论段指出固定题长 SAT 通常不如 CAT 精确，并引用一项同精度研究中 SAT 多花 43% 时间，但这不是元分析的合并效应。19 个能力效应中 13 个为正、6 个为负；焦虑效应虽全部为正，却只有 8 个。研究团队高度集中，论文也未处理效应依赖、异质性、发表偏倚或小样本 \(d\) 偏差。
+
+对本项目最重要的空隙是，早期证据主要比较“算法全程控制”与“受测者全程控制”两个端点，没有系统检验只让用户影响第一题或前 \(k\) 题、随后由个体化 prior 与 CAT 接管的中间设计。后续实验应把控制权持续时间、prior 是否进入估计、选题规则和反馈正交拆开，并同时测量焦虑、控制感、题量、精度与题库曝光。
+
 ## 后续阅读要回答的问题
 
 1. 自报信息究竟应当映射为一个点估计，还是一个带不确定性的先验分布？
@@ -169,4 +177,4 @@ CAT 模拟显示，个体化首题的收益主要集中在 1 至 3 题以及远�
 5. 效率收益是否只出现在极端能力或症状水平的受测者身上？
 6. 自主感、焦虑和动机的变化，是否会改变被测构念本身的作答过程？
 
-本专题后续将继续沿着“全程自主选题 - 个体化起点 - 经验先验 - 仅个体化第一题”的顺序整理文献。三篇补充文献以及 Frosini 等人（1998）和 Chang and Ying（1999）两篇延伸文献已经完成。下一步精读 Pitkin and Vispoel（2001）的元分析，核对 Self-Adapted Testing 与 CAT 在能力估计、焦虑及其他结果上的总体差异。
+本专题的本地 PDF 阅读队列已经全部完成。现有证据将研究空间集中到一个可检验的中间设计：以校准后的自评构造带不确定性的个体化 prior，让用户只影响第一题或前 \(k\) 题，再由标准或不确定性驱动的 CAT 接管；在相同停止精度下，用完整消融同时检验题量、Bias、RMSE、覆盖率、心理体验与条件曝光。
