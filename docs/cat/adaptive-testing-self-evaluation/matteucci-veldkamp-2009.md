@@ -1,5 +1,8 @@
 # Matteucci 与 Veldkamp（2009）：经验先验如何同时改变 CAT 估计与选题路径
 
+!!! abstract "结论先行"
+    **做了什么：**Matteucci 与 Veldkamp 用模拟背景变量构造个体化正态 prior，并通过 Gibbs sampler 让它同时进入初始位置、逐题能力估计和最终计分；下一题仍按当前估计处的最大信息量选择。**得到了什么：**正确且预测力较强的经验 prior 对5题短测验和极端能力最有利，题量增加后优势减弱；只改起点不如让 prior 持续进入更新。**对本专题的结论：**“改变估计后，标准最大信息量选题也会随之个性化”已经被做过；新的贡献必须来自文本或自评信息、错误 prior 风险、可变长度停止，或利用完整 posterior 的新选题准则。
+
 ## 文献身份
 
 > Matteucci, M., & Veldkamp, B. P. (2009). *Computer Adaptive Testing with Empirical Prior Information: A Gibbs Sampler Approach for Ability Estimation*. [论文全文](https://amsacta.unibo.it/id/eprint/2659/1/matteucci_veldkamp_CAT_2009.pdf)
@@ -9,9 +12,6 @@
 - 核心方法：用背景变量构造个体化正态先验，再用 Gibbs sampler 完成逐题与最终能力估计
 - 选题规则：始终使用当前能力估计处的最大信息量规则
 - 重要限定：背景变量是模拟生成的协变量，不是受测者自评；测验全部采用固定长度
-
-!!! abstract "一句话结论"
-    这篇论文已经实现了“个体化 prior 同时进入初始化和逐题能力估计，并通过更新后的能力估计改变后续最大信息量选题路径”。在正确指定且预测力较强的先验下，它对 5 题短测验和极端能力尤其有利；但论文没有检验错误自评、先验方差敏感性、可变长度停止或题目曝光，因此不能据此断言真实自评一定能够缩短 CAT。
 
 ## 1. 它比 van der Linden（1999）多走了哪一步
 

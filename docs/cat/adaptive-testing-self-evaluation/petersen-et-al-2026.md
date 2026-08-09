@@ -1,5 +1,8 @@
 # Petersen 等人（2026）：只个性化第一题，能改善多少 CAT 精度
 
+!!! abstract "结论先行"
+    **做了什么：**Petersen 等人用患者已完成的另一个生活质量领域分数预测目标领域位置，只据此选择第一题；首题之后恢复原有 EORTC CAT 计分与选题。**得到了什么：**个性化首题改善主要出现在1至3题的极短测验和远离总体均值的患者，达到4至5题后差异基本被后续自适应过程纠正。**对本专题的结论：**只改第一题是隔离 routing 效应的干净对照，却很难产生持久收益；若目标是显著提前停止，可能需要让可靠信息继续进入估计或动态选题。
+
 ## 文献身份
 
 > Petersen, M. A., Vachon, H., Giesinger, J. M., & Groenvold, M., on behalf of the European Organisation for Research and Treatment of Cancer Quality of Life Group. (2026). Evaluating the use of prior information to individualise start item selection for the EORTC CAT Core. *Quality of Life Research, 35*, Article 7. [DOI](https://doi.org/10.1007/s11136-025-04101-y)
@@ -10,9 +13,6 @@
 - 实际改变：只改变目标领域的第一道题
 - 没有改变：第一题后的标准 CAT 选题流程，以及 CAT 计分模型
 - 主要收益位置：1 至 3 题的极短 CAT，尤其是远离总体均值的患者
-
-!!! abstract "一句话结论"
-    用另一个生活质量领域的分数预测目标领域的位置，再据此选择第一题，通常能够提高极短 CAT 在分布尾部的早期精度；但施测达到 4 至 5 题后，首题差异基本被后续自适应过程纠正。
 
 !!! note "为什么它是本专题目前最接近导师方案的研究"
     这篇论文没有把辅助信息作为 Bayesian prior 持续放进能力估计，而是只用一个预测点选择第一题。第一题作答后，测验回到原有 CAT。因此它直接回答“只个性化第一题是否足够”，也为我们区分“首题路由效应”和“持续改变 prior 的估计效应”提供了最干净的对照。

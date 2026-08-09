@@ -1,5 +1,8 @@
 # He 等人（2019）：自我叙事怎样变成 PTSD 测量的个体化先验
 
+!!! abstract "结论先行"
+    **做了什么：**He 等人把创伤自我叙事转换为连续文本分数，再通过潜在回归构造个体化正态 prior，并与21道 PTSD 题目的 2PL IRT 似然结合。**得到了什么：**在99人样本中，加入文本后21题分类准确率由 .94 升至 .97；按平均后验标准误比较，17题加文本与21题不加文本接近。**对本专题的结论：**它直接证明了受测者文本可以进入心理测量 prior，但题目始终按共同诊断切点的信息量固定排序，所有人顺序相同，因此没有证明文本 prior 能改善个体化 CAT 选题或真实早停。
+
 ## 文献身份
 
 > He, Q., Veldkamp, B. P., Glas, C. A. W., & van den Berg, S. M. (2019). Combining text mining of long constructed responses and item-based measures: A hybrid test design to screen for posttraumatic stress disorder (PTSD). *Frontiers in Psychology, 10*, 2358. [DOI](https://doi.org/10.3389/fpsyg.2019.02358)
@@ -9,9 +12,6 @@
 - 辅助信息：受测者自己撰写的创伤经历与症状叙事
 - 核心模型：文本分类分数 \(\rightarrow\) 个体化正态 prior \(\rightarrow\) 二参数 Logistic IRT 后验
 - 关键结果：21 题分类准确率由 0.94 提高到 0.97；平均后验标准误曲线显示 17 题加文本 prior 与 21 题不加 prior 接近
-
-!!! abstract "一句话结论"
-    这篇论文证明了“受测者自己产生的非结构化文本可以被转换为心理测量 prior”已有直接先例；但它的题目顺序是在统一诊断切点处预先排好的，对所有人完全相同，因此不是文本 prior 驱动的个性化 CAT 选题。
 
 !!! warning "最容易读错的地方"
     作者把按题目信息量逐题加入称为 adaptive，但这里的信息量始终计算在共同诊断切点 \(\theta_c=-0.15\)，而不是每个人当前的后验位置。所有受测者接受相同的题目顺序。真正个体化的是能力 prior 与后验估计，不是题目选择。

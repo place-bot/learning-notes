@@ -1,5 +1,8 @@
 # Bass 等人（2026）：纵向 PROMIS CAT 能否沿用上一次分数作为 prior
 
+!!! abstract "结论先行"
+    **做了什么：**Bass 等人在两时间点 PROMIS CAT 模拟中，把第一次 CAT 的最终分数设为第二次测量的 prior 均值，并系统改变 prior 标准差。**得到了什么：**健康状态变化较小时，适度收缩的 prior 可能略微缩短测验并降低 RMSE；变化较大时，过窄 prior 会把估计锁在旧分数附近，使测验看似更快停止却遗漏真实变化。**对本专题的结论：**个体化 prior 的方差与均值同样重要，短测验不能单独被视为成功，必须同时检查误差、变化恢复和错误早停。
+
 ## 文献身份
 
 > Bass, M., Morris, S., & Lam, T. (2026). Brief reports: Impact of informed starting value on longitudinal computer adaptive tests in PROMIS assessments. *Advances in Patient-Reported Outcomes, 2*, 100322. [DOI](https://doi.org/10.1016/j.apro.2026.100322)
@@ -11,9 +14,6 @@
 - 估计方法：期望后验估计（Expected A Posteriori, EAP）
 - 停止规则：至少 4 题、\(SE<0.3\)、最多 8 题
 - 主要结论：适度加权旧分数在健康状态变化较小时可能略微缩短测验并降低 RMSE；过窄 prior 会把第二次估计锁在旧分数附近，形成更短但更不准确的测验
-
-!!! abstract "一句话结论"
-    上一次 CAT 分数可以作为纵向复测的个体化 prior，但收益取决于两次测量之间可能变化多少以及题库是否覆盖患者位置。小变化时 \(SD=0.5\) 通常表现较好；大变化时更宽的 \(SD=0.75\) 或 \(1.0\) 更安全，\(SD=0.25\) 则常把真实变化误当成噪声。
 
 !!! danger "最容易把这篇读错的地方"
     标题使用 informed starting value，但作者改变的是第二次 CAT 的完整 prior 分布。它不仅决定开头位置，还持续进入 EAP 能力估计、逐题选题、最终分数和停止判断。因此它不是 Petersen 等人（2026）那种“只改变第一题”的研究。

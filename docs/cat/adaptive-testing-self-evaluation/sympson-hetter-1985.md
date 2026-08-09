@@ -1,5 +1,8 @@
 # Sympson–Hetter（1985）：CAT 题目曝光控制方法
 
+!!! abstract "结论先行"
+    **做了什么：**Sympson–Hetter 方法先让 CAT 按原规则推荐最优题，再按题目特异的接受概率决定是否真正施测，并用离线 Monte Carlo 模拟校准这些概率。**得到了什么：**它能够限制热门题在总体受测者中的边际曝光率，但拒绝最优题会损失信息，而且总体曝光安全不代表某个能力群体内部安全。**对本专题的结论：**该方法解决的是题库保密与总体曝光，不是测量精度；若研究对象是低风险心理测量，可把曝光降为描述性指标，但不能把“首题更分散”自动解释成 CAT 更有效。
+
 ## 方法身份
 
 > Sympson, J. B., & Hetter, R. D. (1985, October). *Controlling item-exposure rates in computerized adaptive testing*. In *Proceedings of the 27th Annual Meeting of the Military Testing Association* (pp. 973–977). San Diego, CA: Navy Personnel Research and Development Center.
@@ -8,9 +11,6 @@
 - 控制对象：每道题在总体受测者中被实际施测的比例
 - 核心工具：题目特异的接受概率与离线 Monte Carlo 模拟
 - 清晰的开放全文说明：[Stocking（1993），*Controlling Item Exposure Rates in a Realistic Adaptive Testing Paradigm*](https://files.eric.ed.gov/fulltext/ED384663.pdf)
-
-!!! abstract "一句话结论"
-    Sympson–Hetter 方法先让 CAT 按原有规则选出最优题，再用该题自己的曝光参数决定是否真正施测。它能够压低热门题的总体曝光率，但会拒绝一部分最优题、损失测验信息，而且不能自动保护特定能力或自评群体内部的条件曝光。
 
 ## 1. 为什么 CAT 需要曝光控制
 

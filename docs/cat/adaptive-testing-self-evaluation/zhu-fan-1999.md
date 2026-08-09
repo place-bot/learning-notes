@@ -1,5 +1,8 @@
 # Zhu and Fan（1999）：用个体化起始题分散题库曝光
 
+!!! abstract "结论先行"
+    **做了什么：**Zhu and Fan 用课程经历和平均成绩预测能力位置，只据此选择第一题，随后恢复相同的 CAT 更新、内容平衡、曝光控制和选题流程。**得到了什么：**个体化起点把首题使用从中等难度附近分散到更宽范围，但没有稳定缩短测验；辅助信息不准时，曝光尖峰会转移到题库两端，估计质量也可能下降。**对本专题的结论：**这篇主要论证个体化首题可以重新分配题库使用，并没有证明 prior information 会加速收敛；首题分散与测量效率必须作为两个独立结果评价。
+
 ## 文献身份
 
 > Zhu, D., & Fan, M. (1999, April). *Adjusting computer adaptive test starting points to conserve item pool*. Paper presented at the Annual Meeting of the American Educational Research Association, Montreal, Canada. ERIC ED429997.
@@ -8,9 +11,6 @@
 - 研究类型：基于实际大规模数学测验数据的计算机化自适应测验（Computerized Adaptive Testing, CAT）模拟
 - 模拟样本：从约 30,000 名受测者中随机抽取 \(N=2{,}000\)
 - 核心比较：共同中等难度起点、平均成绩起点、课程与平均成绩综合起点
-
-!!! abstract "一句话结论"
-    用课程和平均成绩信息选择个体化第一题，能够把首题使用从中等难度附近的少数题目分散到更宽的难度范围；但它没有稳定缩短测验，辅助信息不准确时还会把曝光集中转移到题库两端并降低能力估计质量。
 
 ## 1. 论文要解决的不是冷启动精度，而是题库消耗
 

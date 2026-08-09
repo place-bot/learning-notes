@@ -1,5 +1,8 @@
 # Wise et al. (1991)：Self-Adapted Testing 与 Computerized Adaptive Testing 的直接比较
 
+!!! abstract "结论先行"
+    **做了什么：**Wise 等人将204名学生分到固定20题的 Self-Adapted Testing 与 Computerized Adaptive Testing，两组均逐题得到反馈，差别在于受测者还是算法决定下一题难度。**得到了什么：**自主选题组的平均能力估计更高、测后状态焦虑更低，但完成时间更长、能力估计方差误差更大。**对本专题的结论：**自主选择可能改变作答状态，却没有证明测量效率提高；由于固定题长、分组与即时反馈等限制，这篇也不能回答自评是否能让标准 CAT 更早停止。
+
 ## 文献身份
 
 > Wise, S. L., Plake, B. S., Johnson, P. L., & Roos, L. L. (1991, April). *A comparison of self-adapted and computer-adaptive tests*. Paper presented at the Annual Meeting of the American Educational Research Association, Chicago, IL. ERIC ED331888.
@@ -11,9 +14,6 @@
 
 !!! note "缩写说明"
     论文把 Self-Adapted Testing 简称为 SA，把 Computerized Adaptive Testing 简称为 CA。本专题在讨论这一研究领域时使用更常见的 CAT，即 Computerized Adaptive Testing。CA 与 CAT 在这里指向同一类计算机化自适应测验，只是原论文与本专题采用的缩写不同。
-
-!!! abstract "一句话结论"
-    在固定 20 题的条件下，SA 组的平均能力估计更高、测后状态焦虑更低；代价是完成测验更慢，而且能力估计不如 CA 精确。
 
 ## 1. 论文为什么提出 Self-Adapted Testing（SA）
 

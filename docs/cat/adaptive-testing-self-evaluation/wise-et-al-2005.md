@@ -1,5 +1,8 @@
 # Wise 等人（2005）：低风险测验中，自选难度能否提高努力与表现
 
+!!! abstract "结论先行"
+    **做了什么：**Wise 等人在低风险40题数学测验中比较固定测验、标准 CAT、普通自我适应测验和积分博弈式自我适应测验，并测量能力、问卷努力和反应时努力。**得到了什么：**四组在这些结局上均未检测到显著差异，说明提供逐题选择权乃至积分框架都没有自动提高努力或表现。**对本专题的结论：**低风险场景允许探索自我评价，却不能把“自主性会提高动机”当作机制前提；本文场次层级分配且有效场次很少，非显著结果也不能解释为严格等效。
+
 ## 文献身份
 
 > Wise, S. L., Owens, K. M., Yang, S.-T., Weiss, B., Kissel, H. L., Kong, X., & Horst, S. J. (2005, April). *An investigation of the effects of self-adapted testing on examinee effort and performance in a low-stakes achievement test*. Paper presented at the annual meeting of the National Council on Measurement in Education, Montreal.
@@ -10,9 +13,6 @@
 - 测验内容：40 道退役 ACT 数学题
 - 四个条件：固定题目测验、计算机化自适应测验、普通自我适应测验、积分博弈式自我适应测验
 - 主要结论：四种测验在平均能力、问卷努力和反应时努力上均无显著差异
-
-!!! abstract "一句话结论"
-    在这项固定 40 题、低风险的数学测验中，让受测者逐题选择难度，甚至把选择包装成积分得失游戏，都没有提高平均作答努力或能力表现。低风险不等于没有努力，但“提供选择权”也不是自动可靠的动机干预。
 
 !!! danger "最容易把这篇读错的地方"
     论文得到的是“没有检测到测验类型差异”，不是“四种测验已经证明等效”。实验只有 15 个有效场次、处理在场次层级分配，而且多处表格样本量和 ANOVA 标注不一致；非显著结果不能被解释成精确的零效应。
