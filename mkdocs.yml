@@ -30,6 +30,526 @@ theme:
 plugins:
   - search:
       lang: zh
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: zh
+          name: 中文
+          default: true
+          build: true
+          site_description: 心理测量、CTT、IRT、CAT、CDM 与 R Shiny 学习笔记。
+        - locale: en
+          name: English
+          build: true
+          site_name: Psychometrics and R Shiny Notes
+          site_description: Learning notes on psychometrics, CTT, IRT, CAT, CDM, and R Shiny.
+          nav_translations:
+            首页: Home
+            心理测量基础: Basics of psychometrics
+            总览: Overview
+            CTT 与 IRT 概览: Overview of CTT and IRT
+            基于模型的测量: Model-based measurement
+            IRT 模型: IRT model
+            二分项目模型: dichotomous item model
+            基础模型: Basic model
+            引言: Introduction
+            单维模型: Unidimensional model
+            逻辑模型: logistic model
+            正态 Ogive 模型: Normal Ogive model
+            其他单维模型: Other unidimensional model
+            多维模型: Multidimensional model
+            探索性多维模型: exploratory multidimensional model
+            验证性多维模型: confirmatory multidimensional model
+            总结: Summary
+            多项项目模型: polytomous item model
+            数据与假设: Data and assumptions
+            实例数据: Instance data
+            单维性与局部独立: Unidimensionality and local independence
+            等级反应模型: graded response model
+            部分计分模型: partial credit model
+            间接与直接模型: Indirect and direct models
+            期望项目反应: Expected item response
+            部分计分示例: Partial scoring example
+            扩展模型: Expanded model
+            六种得分方法: Six scoring methods
+            连续反应模型: continuous response model
+            其他模型: Other models
+            设计与选择: Design and selection
+            样本量: sample size
+            特殊考虑: Special considerations
+            模型选择: Model selection
+            IRT 估计与评估: IRT estimation and evaluation
+            IRT 参数估计: IRT parameter estimation
+            IRT 特质量表: IRT trait scale
+            概念基础: Conceptual foundation
+            CTT 与 IRT 差异: CTT vs. IRT differences
+            量表单位: Scale unit
+            量表性质: Scale properties
+            测量量表特性: Properties of measurement scales
+            实际影响: Actual impact
+            特定客观性: Specific objectivity
+            充分统计量: sufficient statistic
+            类比与总结: Analogies and Summary
+            温度计类比: Thermometer analogy
+            考生评分: examinee scoring
+            评分方法: Scoring method
+            最大似然评分: maximum likelihood scoring
+            MAP 评分: MAP score
+            EAP 评分: EAP score
+            分数解释: Score interpretation
+            分数变换: Score transformation
+            项目和测验信息: Item and test information
+            模型拟合评估: model fit evaluation
+            CTT/IRT 应用规则: CTT/IRT application rules
+            规则总览: Overview of rules
+            测验设计: Test design
+            测量误差: Measurement error
+            测验长度: Test length
+            测验形式: Test form
+            分数与量表: Score and scale
+            分数意义: The meaning of the score
+            区间量表: Interval scale
+            变化分数: Change in score
+            项目与模型: Item and model
+            项目属性: item attribute
+            混合格式: mixed formats
+            因子分析: Factor analysis
+            项目特征: Item characteristics
+            阅读路线: Reading route
+            理论背景: Theoretical background
+            潜在结构与混合模型: Latent structure and mixture model
+            数学工具: Mathematical tools
+            HMM、网络与机器学习背景: HMM, background in network and machine learning
+            CDM 主线: CDM main line
+            核心模型: Core model
+            Q 矩阵验证与学习: Q-matrix validation and learning
+            可识别性理论: Identifiability theory
+            估计、正则化与计算: Estimation, regularization and computation
+            连续化与扩展模型: Continuous and expanded models
+            论文总索引: Paper index
+            单篇论文精读: Single paper in-depth reading
+            制作总进度: Overall progress
+            类别清单: Category list
+            阅读导引: Reading guide
+            问题与理论背景: Problems and theoretical background
+            潜在类模型与张量: Latent class models and tensors
+            Kruskal 与三变量结果: Kruskal and three-variable result
+            分块与 Bernoulli 混合: Blocking and Bernoulli mixing
+            全文结果与证据: Full results and evidence
+            证明与手算示例: Proof and worked calculation examples
+            CDM 可识别性接口: CDM identifiability interface
+            可计算复现: computational reproduction
+            符号表: Symbol table
+            总结与后续阅读: Summary and follow-up reading
+            参考文献: References
+            问题与历史位置: Problems and historical location
+            三路数组、triad 与秩: three-way array, triad and rank
+            三重积与固有歧义: Triple product and inherent ambiguity
+            核心唯一性定理: Core uniqueness theorem
+            证明思路: Proof strategy
+            理论结果与应用: Theoretical results and applications
+            完整手算例子: Complete worked calculation example
+            可计算检查: Computational check
+            与 CDM 的接口: Interface with CDM
+            总结与后续问题: Summary and follow-up questions
+            CDM 核心模型: CDM core model
+            问题、对象与模型假设: Problems, objects and model assumptions
+            Q 矩阵与理想反应: Q matrix and ideal response
+            反应概率与似然: response probability and likelihood
+            三种估计路线: Three estimation approaches
+            EM 完整推导: EM complete derivation
+            标准误与分类: Standard error and classification
+            HO-DINA 与 MCMC: HO-DINA and MCMC
+            模拟实验: Simulation experiment
+            分数减法真实数据: fraction subtraction real data
+            代码实现精读: Code implementation of in-depth reading
+            手算 EM 的 E 步: worked calculation EM's E step
+            限制与未来工作: Limitations and future work
+            问题与框架全貌: The full picture of the problem and the framework
+            约化属性模式与偏序: Reduced attribute profiles and partial orders
+            三个 link function: Three link functions
+            DINA、DINO 与 A-CDM: DINA, DINO and A-CDM
+            LLM、G-NIDA 与 R-RUM: LLM, G-NIDA and R-RUM
+            MMLE 与 EM: MMLE and EM
+            约化模型与权重矩阵: reduced model and weight matrix
+            MLE、不变性与标准误: MLE, invariance and standard error
+            逐题 Wald 检验: Wald test for each question
+            分数减法数据: fraction subtraction data
+            临床数据与勘误: Clinical data and errata
+            两属性项目数值拆解: Decomposition of the value of two attribute items
+            局限与未来工作: Limitations and future work
+            问题、贡献与证据边界: Boundaries of questions, contributions and evidence
+            DINA、Q 矩阵与理想反应: DINA, Q matrix and ideal response
+            区分度指标与验证目标: discrimination index and validation objective
+            假想题与穷举搜索: hypothetical item and exhaustive search
+            顺序搜索算法: Sequential search algorithm
+            EM 后验期望计数: EM posterior expected count
+            完整验证流程: Complete validation procedure
+            阈值与最终决策: Threshold and final decision-making
+            模拟实验设计: Simulation experiment design
+            模拟结果与解释: Simulation result and explanation
+            分数减法数据与设计: Fraction subtraction data and design
+            分数减法结果与反例: fraction subtractionresult and counterexample
+            NAEP 数据与设计: NAEP data and design
+            NAEP 结果与题目案例: NAEP result and item case
+            代码库实现精读: In-depth reading of the codebase implementation
+            局限、结论与未来工作: Limitations, conclusions and future work
+            研究问题、贡献与边界: Research issues, contributions and boundaries
+            G-DINA 基础与约化属性模式: G-DINA basic and reduced attribute profile
+            五种成功概率剖面: Five probability profiles of success
+            后验权重、折叠分组与条件均值: posterior weight, folded grouping and conditional mean
+            GDI 的定义与统计解释: The definition and statistical explanation of GDI
+            Table 1 手算与排版错误: Table 1 worked calculation and typesetting error
+            appropriate 与 correct q-vector: appropriate and correct q-vector
+            两个引理、主定理与证明: Two lemmas, main theorems and proofs
+            PVAF 穷举搜索与阈值: PVAF exhaustive search and threshold
+            完整估计与验证算法: Complete estimation and validation algorithm
+            模拟实验的共同设计: Common design of simulation experiments
+            Study 1 五种约化模型: Study 1 Five reduced models
+            Study 2 无约束 G-DINA: Study 2 Unconstrained G-DINA
+            真实数据结果与逐题解释: Real-data results and item-by-item interpretation
+            Ox 与 GDINA 代码精读: Ox and GDINA code in-depth reading
+            一致性评论与回应: Consistency comments and responses
+            研究问题、贡献与证据边界: Research problem, contribution and evidence boundary
+            DINA 模型与全部基础符号: DINA model and all basic symbols
+            从完整反应分布到可观测矩: From the full response distribution to observable moments
+            B-vector 与 T-matrix: B-vector and T-matrix
+            三题两属性完整手算: Three questions and two attributes complete worked calculation
+            目标函数与三种估计量: Objective function and three estimation quantities
+            未知参数与 DINA EM: Unknown parameters and DINA EM
+            Algorithm 1 逐行爬山搜索: Algorithm 1 row-by-row hill-climbing search
+            T-matrix 截断与计算量: T-matrix truncation and computational cost
+            部分已知 Q 与新题校准: Partially known Q and calibration of new questions
+            可识别性、标签交换与反例: Identifiability, label exchange and counterexamples
+            模拟实验共同设计与三个 Q: Joint design of simulation experiments and three Q
+            Table 1 样本量、属性数与恢复率: Table 1 sample size, number of attributes and recovery rate
+            Figures 1--2 与 4.5% 早停: Figures 1--2 and 4.5% early termination
+            Table 3 相关且不均衡的属性: Table 3 Relevant and unbalanced attributes
+            Table 4 单道新题校准: Table 4 Calibration of a single new question
+            模型验证、样本量与证据边界: Model validation, sample size and evidence boundary
+            公开代码状态与实现精读: Public code status and implementation of in-depth reading
+            本站可计算复现: Computational reproduction on this site
+            问题、创新与 2012 论文的关系: The relationship between problems, innovation and 2012 papers
+            基础模型、样本与全部对象: Basic models, samples and all objects
+            理想反应、B-vector 与 T-matrix: ideal response, B-vector and T-matrix
+            经验矩 alpha 与总体映射: empirical moments alpha and overall mapping
+            目标函数、Q 估计量与计算: Objective function, Q estimate and calculation
+            列置换等价、完整性与饱和性: Equivalence, completeness and saturation of column permutation
+            C1--C5 的逐项解释: Item-by-item explanation of C1--C5
+            Theorem 2.4 无噪声一致性: Theorem 2.4 Noise-free consistency
+            已知失误与猜测参数的 DINA: DINA with known errors and guessing parameters
+            噪声 T-matrix 与目标函数: Noise T-matrix and target function
+            Theorem 3.1 已知参数一致性: Theorem 3.1 Known parameter consistency
+            未知 c 的一般估计与矩估计: General estimation and moment estimation with unknown c
+            组合估计量与 Theorem 4.2: Combined estimate and Theorem 4.2
+            全部证明的总路线: The total route of all the proofs
+            Propositions 6.1--6.2 满列秩: Propositions 6.1--6.2 full column rank
+            Propositions 6.3--6.6 列空间分离: Propositions 6.3--6.6 Column space separation
+            Lemma 6.7 与消去猜测的矩阵 D: Lemma 6.7 and the matrix D of eliminating guessing
+            三个主定理的证明: Proof of the three main theorems
+            附录证明与 C5 的关键作用: Appendix to prove the key role of C5
+            反例、必要性与识别边界: Counterexamples, necessity and identifiability boundary
+            饱和矩、搜索复杂度与实用截断: Saturated moments, search complexity, and practical truncation
+            Experiment 与原文证据: Experiment and original evidence
+            代码状态与实现精读: Code status and implementation of in-depth reading
+            本站可计算核验: Computational verification on this site
+            与已有 Q 学习方法的关系: Relationship to existing Q learning methods
+            DINA 模型、数据与全部符号: DINA model, data and all symbols
+            理想反应、题目反应函数与似然: Ideal response, item response function and likelihood
+            完整贝叶斯层级模型: Complete Bayesian hierarchical model
+            各层先验与完整条件分布: Priorities and complete conditional distribution of each layer
+            Q 的三条可识别条件: Three identifiable conditions of Q
+            为什么限制在可识别空间: Why restrict the model to the identifiable space?
+            Q 的条件后验与均匀先验: The condition posterior of Q and the uniform prior
+            三类候选生成器总览: Overview of three types of candidate generators
+            独立提议与 DS1: Independent proposal with DS1
+            DS2 分块依赖提议: DS2 Partitioned Dependency Proposal
+            Theorem 1 不可约性: Theorem 1 Irreducibility
+            Theorem 2 对称性与接受率: Theorem 2 Symmetry and acceptance rate
+            受限 Gibbs 完整算法: Limited Gibbs complete algorithm
+            单个 q 的条件概率推导: Conditional probability derivation of a single q
+            Q 后验众数与列置换: Posterior mode of Q and column permutations
+            Experiment 模拟设计: Experiment Simulation Design
+            Experiment Table 1 全部结果: Experiment Table 1 All results
+            Experiment 题目参数与收敛: Experiment item parameters and convergence
+            Experiment 分数减法设计: Experiment fraction subtraction design
+            Experiment K=3 逐题结果: Experiment K=3 Question-by-question result
+            Experiment K=4 逐题结果: Experiment K=4 Question by question result
+            原始补充材料代码精读: Original supplementary material code in-depth reading
+            当前 edina 包代码精读: Current edina package code in-depth reading
+            与已有识别结果的关系: Relationship to existing identifiability results
+            RLCM 数据生成过程与全部对象: RLCM data-generating process and all objects
+            DINA、G-DINA 与一般 RLCM: DINA, G-DINA and general RLCM
+            严格识别、泛识别与列标签交换: Strict identification, generic identifiability and column label exchange
+            四题两属性的泛识别例子: Examples of generic identifiability with two attributes in four questions
+            T-matrix 与识别等价式: T-matrix and identifiability equivalence
+            零行、单调性和等价关系: Zero line, monotony and equivalence relationship
+            Theorem 1 A/B/C 必要且充分: Theorem 1 A/B/C is necessary and sufficient
+            Condition A 完整性: Condition A Integrity
+            Condition B 列互异: 'Condition B: Columns are mutually different.'
+            Condition C 三次测量: Condition C Three measurements
+            最少题数与 K=8 构造: The minimum number of questions and K=8 construction
+            Theorem 1 证明路线: Theorem 1 Proof Route
+            Theorem 2 两次测量的三种结构: Theorem 2 Three structures of two measurements
+            K=2 的完整泛识别刻画: The complete generic identifiability description of K=2
+            一般 RLCM 重复性必要条件: Necessary repetition condition for general RLCMs
+            泛完整性与二分图匹配: General completeness and bipartite graph matching
+            Theorem 4 D/E 泛识别条件: Theorem 4 D/E generic identifiability condition
+            Theorem 5 与 K=2 必要充分条件: Theorem 5 and the necessary and sufficient condition for K=2
+            有限样本误差界: The error limit of the finite sample
+            Experiment 主文泛识别模拟: Experiment Main text generic identifiability simulation
+            Experiment 补充材料共同设计: Experiment supplementary materials jointly designed
+            官方条件检查代码精读: Official condition inspection code in-depth reading
+            官方模拟代码精读: Official simulation code in-depth reading
+            本站可计算核验与代码审查: Computational verification and code review on this site
+            CDM、Q 矩阵与文本分类接口: CDM, Q matrix and text classification interface
+            原始数据 1,069 题与九属性: Original data 1,069 questions and nine attributes
+            实验裁剪 805 题二分类: Experimental cutting 805 question binary classification
+            监督学习任务表述: Supervised learning task formulation
+            三阶段框架总览: Overview of the three-stage framework
+            中文分词与 n-gram: Chinese tokenization and n-gram
+            信息增益特征选择: information-gain feature selection
+            TF--IDF 题目向量: TF--IDF item vector
+            C-SVM 与实现歧义: C-SVM and the realization of ambiguity
+            Experiment 数据划分与调参: Experiment data division and parameter tuning
+            Experiment 性能指标: Experiment performance indicators
+            Experiment unigram 结果: Experiment unigram result
+            Experiment bigram 结果: Experiment bigram result
+            Experiment trigram 结果: Experiment trigram result
+            关键词与教育语义: Keywords and educational semantics
+            多数类基线与不平衡: Most classes of baseline and imbalance
+            小测试集与不确定性: Small test set and uncertainty
+            Equation 9 的 F1 审计: F1 audit of Equation 9
+            复现性审计: reproducibility audit
+            独立代码重构: Independent code reconstruction
+            本站数值核验: Numerical verification on this site
+            文本分类与完整 Q 生成: Text classification and complete Q generation
+            与 CDM、CAT 和 RecCAT 的接口: Interfaces with CDM, CAT and RecCAT
+            RLCM 模型与局部独立: RLCM model and local independence
+            Q 矩阵限制与单调性: Q Matrix Constraints and Monotonicity
+            六类诊断模型: Six types of diagnostic models
+            严格可识别性的定义: The definition of strict identifiability
+            边际 T 矩阵: Marginal T matrix
+            完整 Q 矩阵: Complete Q matrix
+            C1、C2 与三套单位阵: C1, C2, and three identity-matrix blocks
+            主定理与设计含义: Main theorem and design meaning
+            命题 3 可逆平移: Proposition 3 Reversible translation
+            证明步骤 1--2: Proof steps 1--2
+            证明步骤 3--5: Proof steps 3--5
+            两个技术引理: Two technical lemmas
+            C1 单独不够的反例: C1 An isolated counterexample that is not enough
+            从可识别性到一致性: From identifiability to consistency
+            原文证据与 Experiment: Original evidence and Experiment
+            代码实现与可计算核验: Code implementation and computational verification
+            HMM、网络与机器学习: HMM, network and machine learning
+            专题导引: Special topic introduction
+            Sympson–Hetter (1985) 方法: Sympson-Hetter (1985) method
+            基础准备: Basic preparation
+            双层优化: Double-layer optimization
+            Framework 与算法: Framework and algorithm
+            手算示例: worked calculation example
+            实验、结论与未来工作: Experiments, conclusions and future work
+            符号与推导: Symbols and derivations
+            官方代码精读: Official code in-depth reading
+            问题、CAT 与离线数据: Issues, CAT and offline data
+            双层目标、MDP 与奖励: Double-layer goals, MDP and rewards
+            Q-learning 与经验回放: Q-learning and experience replay
+            状态编码与双通道 attention: State encoding and dual-channel attention
+            训练与真实学生部署: Training and real student deployment
+            完整手算示例: Complete worked calculation example
+            实验设计、完整结果与分析: Experimental design, complete results and analysis
+            官方代码精读与最小实现: Official code in-depth reading and minimum implementation
+            局限、方法比较与未来工作: Limitations, comparative methods and future work
+            符号表与 FAQ: Symbol table and FAQ
+            Deep RL 自适应学习: Deep RL adaptive learning
+            论文问题、贡献与发表版本: Paper problems, contributions and published versions
+            测量模型、能力状态与假设: Measurement model, ability status and assumptions
+            MDP、Q 函数与 Bellman 方程: MDP, Q functions and Bellman equations
+            把自适应学习写成 MDP: Write adaptive learning as MDP
+            从 Bellman 方程到 DQN: From Bellman equation to DQN
+            深度 Q-learning 完整算法: Deep Q-learning complete algorithm
+            转移模型估计器与虚拟学生: transition model estimator and virtual students
+            完整手算与逐步反馈: Complete worked calculation and step-by-step feedback
+            模拟环境与实验设计: Simulation environment and experimental design
+            实验结果与证据边界: Experimental results and evidence boundaries
+            实现蓝图与检查清单: Achieve the blueprint and check list.
+            局限、CAT 接口与未来工作: Limitations, CAT interface and future work
+            符号表、结论与阅读地图: Symbol table, conclusions and reading map
+            词表示与 Word2Vec: word representation and Word2Vec
+            论文问题、文献身份与创新: Paper problems, Citation details and innovation
+            分布式词表示基础: Basic of distributed word representation
+            计算复杂度与神经语言模型基线: Computational complexity and neural language model baseline
+            CBOW：从上下文预测中心词: 'CBOW: Predicting center word from context'
+            Skip-gram：从中心词预测上下文: 'Skip-gram: predict the context from the center word'
+            SGD、反向传播与完整算法: SGD, backpropagation and complete algorithm
+            类比评测与向量运算: Analogy evaluation and vector operation
+            实验设计、数据与比较框架: Experimental design, data and comparison framework
+            实验结果与证据分析: Experimental results and evidence analysis
+            线性规律的含义与边界: The meaning and boundary of linear laws
+            公开代码与最小实现: Public code and minimum implementation
+            局限、后续工作与现代位置: Limitations, follow-up work and modern location
+            参考文献与资料: References and materials
+            子词分词: Subword tokenization
+            BPE、Byte-level BPE 与 WordPiece: BPE, Byte-level BPE and WordPiece
+            为什么需要子词: Why do we need subwords?
+            Tokenizer 完整流水线: Tokenizer complete production line
+            BPE 词表训练: BPE vocabulary training
+            BPE 编码与 Merge Rank: BPE coding and Merge Rank
+            WordPiece 训练思想: WordPiece training ideas
+            BERT WordPiece 编码: BERT WordPiece encoding
+            BPE 与 WordPiece 比较: Comparison between BPE and WordPiece
+            完整手算: Complete worked calculation
+            官方代码与现代实现: Official code and modern implementation
+            评价、局限与结论: Evaluation, limitations and conclusions
+            参考资料: Resources
+            神经机器翻译与注意力: Neural machine translation and attention
+            论文身份、问题与创新: paper identity, problems and innovation
+            NMT 概率与固定向量瓶颈: NMT probability and fixed vector bottleneck
+            双向编码器与源端注释: bidirectional encoder and source-end comments
+            逐步解码与条件生成: Gradual decoding and conditional generation
+            Additive Attention 完整推导: Additive Attention complete derivation
+            端到端目标与反向传播: End-to-end target and backpropagation
+            GRU、初始化与 Deep Output: GRU, initialization and Deep Output
+            Beam Search 与推理: Beam Search and Reasoning
+            逐步手算：从注意力到梯度: 'Gradual worked calculation: from attention to gradient'
+            实验设计、数据与训练配置: Experimental design, data and training configuration
+            BLEU 结果与长度分析: BLEU result and length analysis
+            软对齐与长句案例: Soft alignment and long sentence cases
+            GroundHog 原始代码精读: GroundHog original code in-depth reading
+            现代 PyTorch 实现: Modern PyTorch implementation
+            注意力解释、复杂度与并行化: Attention explanation, complexity and parallelism
+            局限、Transformer 接口与后续工作: Limitations, Transformer interface and subsequent work
+            参考文献与一手资源: References and first-hand resources
+            问题、创新与架构全景: Overview of problems, innovation and architecture
+            Q、K、V 的含义与形状: The meaning and shape of Q, K and V
+            Padding Mask 与 Causal Mask: Padding Mask and Causal Mask
+            Encoder、Decoder 与三种 Attention: Encoder, Decoder and three types of Attention
+            位置编码: positional encoding
+            FFN、残差与 LayerNorm: FFN, residual and LayerNorm
+            训练与自回归推理: Training and autoregressive reasoning
+            复杂度、路径与并行化: Complexity, path and parallelization
+            实验结果与消融: Experimental results and ablation
+            代码精读与现代实现: Code in-depth reading and modern implementation
+            局限、现代变体与结论: Limitations, modern variants and conclusions
+            参数高效微调: Parameter efficient fine-tuning
+            问题与创新: Problems and innovation
+            低秩更新的线性代数: Linear algebra with low-rank updates
+            参数量、显存与训练成本: Parameter count, GPU memory and training cost
+            Transformer 中改哪些矩阵: Which matrices are changed in Transformer?
+            初始化、缩放与 Rank: Initialization, scaling and Rank
+            训练、合并与部署: Training, merging and deployment
+            与其他微调方法比较: Compared with other fine-tuning methods
+            实验设计与结果: Experimental design and results
+            低秩更新分析: Low-rank update analysis
+            loralib 代码精读: Loralib code in-depth reading
+            局限、扩展与结论: Limitations, extensions and conclusions
+            双向预训练: Bidirectional pretraining
+            问题与 Encoder-Only 架构: Problems with Encoder-Only Architecture
+            输入表示: Input representation
+            MLM 与 80/10/10: MLM and 80/10/10
+            NSP 与样本构造: NSP and sample construction
+            预训练配置: pretraining configuration
+            统一微调接口: Unified fine-tuning interface
+            实验结果: Experimental result
+            消融研究: ablation study
+            原始代码精读: Original code in-depth reading
+            局限、后续与结论: Limitations, follow-up and conclusions
+            BERT 术语对应文献: BERT term corresponding literature
+            迁移学习 · Pan & Yang (2010): transfer learning · Pan & Yang (2010)
+            定义与分类: Definition and classification
+            三种设置与四类方法: Three settings and four methods
+            负迁移与手算: Negative migration and worked calculation
+            BERT 接口与结论: BERT interface and conclusion
+            语言建模 · Bengio et al. (2003): Language modeling · Bengio et al. (2003)
+            概率与分布式表示: Probability and distributed representation
+            架构与训练: Architecture and training
+            手算与 Perplexity: worked calculation and Perplexity
+            实验、局限与结论: Experiments, limitations and conclusions
+            预训练 · Dai & Le (2015): pretraining · Dai & Le (2015)
+            问题与无监督目标: Problems and unsupervised goals
+            完整算法: Complete algorithm
+            实验与手算: Experiment and worked calculation
+            局限、接口与结论: Limitations, interfaces and conclusions
+            微调 · ULMFiT (2018): fine-tuning · ULMFiT (2018)
+            三阶段方法: Three-stage method
+            三种微调技术: Three fine-tuning technologies
+            分类算法: Classification algorithm
+            实验、消融与低样本: Experiments, ablation and few-sample settings
+            自回归大语言模型与对齐: autoregressive large language model and alignment
+            从语言模型到隐式多任务: From language model to implicit multi-tasking
+            WebText 数据集: WebText dataset
+            GPT-2 架构与训练: GPT-2 architecture and training
+            Zero-shot 评价协议: Zero-shot evaluation protocol
+            语言建模实验: Language modeling experiment
+            阅读理解、摘要与翻译实验: Reading comprehension, summary and translation experiments
+            泛化、重叠与记忆: Generalization, overlap and memory
+            完整数值例子: Complete numerical examples
+            局限、结论与后续: Limitations, conclusions and follow-up
+            Zero/One/Few-shot 与微调: Zero/One/Few-shot and fine-tuning
+            In-context learning 机制: In-context learning mechanism
+            架构与八档模型规模: Architecture and eight-level model scale
+            数据流水线与混合采样: Data production line and mixed sampling
+            训练配置与计算量: Training configuration and computational requirements
+            评价协议与提示构造: Evaluation agreement and prompt construction
+            核心实验结果: Core experiment result
+            合成任务与定性实验: Synthesized tasks and qualitative experiments
+            元学习解释: Meta-learning explanation
+            Scaling 曲线分析: Scaling curve analysis
+            数据污染审计: Data contamination audit
+            代码、限制与结论: Code, limitations and conclusions
+            问题、贡献与模型家族: Problems, contributions and model families
+            Base 与 Chat 完整流水线: Complete production line of Base and Chat
+            预训练数据、Tokenizer 与优化: pretraining data, Tokenizer and optimization
+            RMSNorm、SwiGLU、RoPE 与 GQA: RMSNorm, SwiGLU, RoPE and GQA
+            基础模型实验: Basic model experiment
+            监督微调: Supervise fine-tuning
+            偏好数据与双 Reward Model: Preference data and double Reward Model
+            PPO、组合奖励与 KL: PPO, combination rewards and KL
+            安全微调与红队: Safety fine-tuning and red team
+            Chat 评价与证据边界: Chat evaluation and evidence boundary
+            官方代码、模板与许可: Official code, templates and licenses
+            局限、结论与演进: Limitations, conclusions and evolution
+            开放权重模型家族: open-weight model family
+            Command R、Mistral、Phi 与 Llama: Command R, Mistral, Phi and Llama
+            开源代码、开放权重与开放训练: Open source code, open-weight and open training
+            技术横向比较: Technical comparison
+            任务、算力与许可证选型: Task, computing resources and license selection
+            结论与持续更新: Conclusion and continuous updates
+            官方资料: Official information
+            LLM 软件栈: LLM software stack
+            Transformers、llama.cpp 与 LangChain: Transformers, llama.cpp and LangChain
+            软件栈分层地图: Software stack layered map
+            三者的系统集成: System integration of the three
+            性能、显存与运维: Performance, GPU memory and operations
+            选型与结论: Selection and conclusion
+            LLM 书籍导读: LLM book guide
+            全书地图与阅读路线: The map and reading route of the whole book
+            预训练数据: pretraining data
+            词表与 Tokenization: vocabulary and Tokenization
+            架构与学习目标: Structure and learning objectives
+            模型选择与推理: Model selection and reasoning
+            微调与领域适配: fine-tuning and domain adaptation
+            对齐训练与推理能力: Alignment training and reasoning ability
+            推理优化: Reasoning optimization
+            工具调用与 Agent: Tool invocation and Agent
+            Embedding 与 RAG: Embedding and RAG
+            系统架构与 CAT 映射: System architecture and CAT mapping
+            局限、结论与阅读建议: Limitations, conclusions and reading suggestions
+            学习路径: Learning path
+            入门基础: Introduction to basics
+            Day 2 布局和主题: Day 2 Layout and Theme
+            交互与输出: Interaction and output
+            Day 3 输入控件: Day 3 Input Controls
+            Day 4 输出展示: Day 4 Output Display
+            Day 5 反应式编程: Day 5 reactive programming
+            项目与部署: Item and deployment
+            Day 6 实战项目: Day 6 practical project
+            Day 7 部署上线: Day 7 Deployment and Online
+            质量与维护: Quality and maintenance
+            内容核查记录: Content verification records
 
 markdown_extensions:
   - admonition

@@ -1,0 +1,335 @@
+# Longest matching source term wins. Keep one source<TAB>target pair per line.
+计算机化多阶段测验	computerized multistage testing
+计算机化自适应测验	computerized adaptive testing
+多维计算机化自适应测验	multidimensional computerized adaptive testing
+认知诊断计算机化自适应测验	cognitive diagnostic computerized adaptive testing
+自我适应测验	self-adapted testing
+项目反应理论	Item Response Theory
+经典测验理论	Classical Test Theory
+认知诊断模型	cognitive diagnosis model
+受限潜在类别模型	restricted latent class model
+多维项目反应理论	multidimensional Item Response Theory
+项目特征曲线	item characteristic curve
+题目特征曲线	item characteristic curve
+项目反应函数	item response function
+题目反应函数	item response function
+项目信息函数	item information function
+题目信息函数	item information function
+边际最大似然估计	marginal maximum likelihood estimation
+联合最大似然估计	joint maximum likelihood estimation
+最大似然估计	maximum likelihood estimation
+期望后验估计	expected a posteriori estimation
+最大后验估计	maximum a posteriori estimation
+马尔可夫链蒙特卡洛	Markov chain Monte Carlo
+差异项目功能	differential item functioning
+测量不变性	measurement invariance
+局部独立性	local independence
+单维性	unidimensionality
+多维性	multidimensionality
+可识别性	identifiability
+严格可识别性	strict identifiability
+一般可识别性	generic identifiability
+模型拟合	model fit
+拟合优度	goodness of fit
+潜在特质	latent trait
+潜在变量	latent variable
+潜在类别	latent class
+潜在回归	latent regression
+能力估计	ability estimate
+能力参数	ability parameter
+项目参数	item parameters
+题目参数	item parameters
+区分度参数	discrimination parameter
+难度参数	difficulty parameter
+猜测参数	guessing parameter
+滑失参数	slip parameter
+项目难度	item difficulty
+题目难度	item difficulty
+项目区分度	item discrimination
+题目区分度	item discrimination
+项目信息量	item information
+题目信息量	item information
+测验信息量	test information
+项目曝光率	item exposure rate
+题目曝光率	item exposure rate
+曝光控制	exposure control
+题库	item bank
+受测者	examinee
+被试	participant
+考生	examinee
+项目	item
+题目	item
+测验长度	test length
+固定长度	fixed length
+可变长度	variable length
+停止规则	stopping rule
+标准误	standard error
+均方误差	mean squared error
+均方根误差	root mean squared error
+后验均值	posterior mean
+后验方差	posterior variance
+后验分布	posterior distribution
+先验均值	prior mean
+先验方差	prior variance
+先验分布	prior distribution
+经验先验	empirical prior
+信息先验	informative prior
+似然函数	likelihood function
+边际似然	marginal likelihood
+条件分布	conditional distribution
+联合分布	joint distribution
+概率分布	probability distribution
+置信区间	confidence interval
+可信区间	credible interval
+覆盖率	coverage rate
+偏差	bias
+方差	variance
+信度	reliability
+效度	validity
+内容效度	content validity
+收敛效度	convergent validity
+区分效度	discriminant validity
+结构效度	construct validity
+二参数逻辑模型	two-parameter logistic model
+三参数逻辑模型	three-parameter logistic model
+一参数逻辑模型	one-parameter logistic model
+二参数正态卵形模型	two-parameter normal-ogive model
+分级反应模型	graded response model
+部分计分模型	partial credit model
+广义部分计分模型	generalized partial credit model
+评分量表模型	rating scale model
+名义反应模型	nominal response model
+多分类项目	polytomous item
+二分项目	dichotomous item
+充分统计量	sufficient statistic
+特定客观性	specific objectivity
+链接设计	linking design
+等值	equating
+量尺	measurement scale
+原始分	raw score
+总分	total score
+因子载荷	factor loading
+探索性因子分析	exploratory factor analysis
+验证性因子分析	confirmatory factor analysis
+双因子模型	bifactor model
+属性掌握模式	attribute mastery profile
+属性模式	attribute profile
+属性掌握	attribute mastery
+属性层级	attribute hierarchy
+理想反应	ideal response
+反应概率	response probability
+作答反应	item response
+作答模式	response pattern
+反应矩阵	response matrix
+作答数据	response data
+反应时	response time
+序贯模型	sequential model
+转移概率	transition probability
+隐马尔可夫模型	hidden Markov model
+增强学习	reinforcement learning
+深度增强学习	deep reinforcement learning
+深度学习	deep learning
+机器学习	machine learning
+监督学习	supervised learning
+无监督学习	unsupervised learning
+半监督学习	semi-supervised learning
+迁移学习	transfer learning
+领域适应	domain adaptation
+自然语言处理	natural language processing
+大型语言模型	large language model
+语言模型	language model
+生成式人工智能	generative artificial intelligence
+检索增强生成	retrieval-augmented generation
+上下文学习	in-context learning
+少样本学习	few-shot learning
+零样本学习	zero-shot learning
+预训练	pretraining
+微调	fine-tuning
+指令微调	instruction tuning
+分词器	tokenizer
+分词	tokenization
+词表	vocabulary
+词嵌入	word embedding
+上下文嵌入	contextual embedding
+位置编码	positional encoding
+自注意力	self-attention
+多头注意力	multi-head attention
+注意力机制	attention mechanism
+查询向量	query vector
+键向量	key vector
+值向量	value vector
+编码器	encoder
+解码器	decoder
+前馈网络	feed-forward network
+残差连接	residual connection
+层归一化	layer normalization
+交叉熵	cross-entropy
+损失函数	loss function
+训练集	training set
+验证集	validation set
+测试集	test set
+样本外	out-of-sample
+过拟合	overfitting
+欠拟合	underfitting
+超参数	hyperparameter
+学习率	learning rate
+批量大小	batch size
+梯度下降	gradient descent
+反向传播	backpropagation
+特征工程	feature engineering
+混淆矩阵	confusion matrix
+灵敏度	sensitivity
+敏感度	sensitivity
+特异度	specificity
+阳性预测值	positive predictive value
+阴性预测值	negative predictive value
+分类准确率	classification accuracy
+分类错误率	misclassification rate
+数据生成过程	data-generating process
+蒙特卡洛模拟	Monte Carlo simulation
+模拟研究	simulation study
+消融研究	ablation study
+随机对照试验	randomized controlled trial
+前瞻性验证	prospective validation
+外部验证	external validation
+交叉验证	cross-validation
+自助法	bootstrap
+正态分布	normal distribution
+标准正态分布	standard normal distribution
+伯努利分布	Bernoulli distribution
+多项分布	multinomial distribution
+多元正态分布	multivariate normal distribution
+期望值	expectation
+协方差	covariance
+相关系数	correlation coefficient
+显著性水平	significance level
+统计功效	statistical power
+效应量	effect size
+样本量	sample size
+缺失数据	missing data
+随机缺失	missing at random
+不可忽略缺失	missing not at random
+问卷	questionnaire
+量表	scale
+患者报告结局	patient-reported outcome
+临床问诊	clinical interview
+自我叙事	self-narrative
+文本分数	text score
+个体化	individualized
+心理测量	psychometrics
+能力估计器	ability estimator
+潜在尺度	latent scale
+潜在能力	latent ability
+自我感知能力	self-perceived ability
+正误反馈	correctness feedback
+分块变量	blocking variable
+因变量	dependent variable
+自变量	independent variable
+主效应	main effect
+交互效应	interaction effect
+误差方差	error variance
+功效分析	power analysis
+统计检验力	statistical power
+特征值	eigenvalue
+转移模型	transition model
+强化学习	reinforcement learning
+结果	result
+结论先行	Key takeaway
+文献身份	Citation details
+研究对象	Study population
+比较对象	Comparison
+缩写说明	Abbreviations
+固定题长	fixed test length
+题长	test length
+作答上一题	answer the previous item
+发题	administer the item
+题目作答	item response
+项目作答	item response
+此前作答	previous responses
+逐题作答	item-by-item responses
+作答状态	response state
+作答日志	response logs
+作答证据	response evidence
+自主选题	self-selected items
+自主选择	self-selection
+题目选择	item selection
+项目选择	item selection
+功效	statistical power
+首页	Home
+引言	Introduction
+总结	Summary
+参考文献	References
+参考资料	Resources
+逻辑模型	logistic model
+单维模型	unidimensional model
+多维模型	multidimensional model
+探索性多维模型	exploratory multidimensional model
+验证性多维模型	confirmatory multidimensional model
+多项项目模型	polytomous item model
+等级反应模型	graded response model
+连续反应模型	continuous response model
+期望项目反应	expected item response
+特质量表	trait scale
+量表性质	scale properties
+测量量表特性	properties of measurement scales
+考生评分	examinee scoring
+最大似然评分	maximum likelihood scoring
+分数解释	score interpretation
+混合格式	mixed formats
+潜在结构	latent structure
+潜在类	latent class
+混合模型	mixture model
+正则化	regularization
+Q 矩阵验证与学习	Q-matrix validation and learning
+精读	in-depth reading
+全文结果	full results
+证明思路	proof strategy
+三路数组	three-way array
+三重积	triple product
+后验	posterior
+引理	lemma
+约化属性模式	reduced attribute profile
+约化模型	reduced model
+分数减法	fraction subtraction
+区分度指标	discrimination index
+验证目标	validation objective
+假想题	hypothetical item
+真实数据	real data
+一致性	consistency
+可观测矩	observable moments
+经验矩	empirical moments
+爬山搜索	hill-climbing search
+列置换	column permutation
+满列秩	full column rank
+消去猜测	eliminating guessing
+识别边界	identifiability boundary
+泛识别	generic identifiability
+二分图匹配	bipartite graph matching
+二分类	binary classification
+信息增益特征选择	information-gain feature selection
+复现性审计	reproducibility audit
+数值核验	numerical verification
+词表示	word representation
+分布式词表示	distributed word representation
+中心词	center word
+子词分词	subword tokenization
+论文身份	paper identity
+双向编码器	bidirectional encoder
+自回归	autoregressive
+元学习	meta-learning
+数据污染	data contamination
+奖励模型	reward model
+开放权重	open-weight
+技术横向比较	technical comparison
+算力	computing resources
+书籍导读	book guide
+反应式编程	reactive programming
+实战项目	practical project
+低样本	few-sample settings
+消融	ablation
+可计算复现	computational reproduction
+可计算核验	computational verification
+手算	worked calculation
+参数量	parameter count
+显存	GPU memory
+运维	operations
