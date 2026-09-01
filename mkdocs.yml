@@ -1,5 +1,5 @@
 site_name: Psychometrics and R Shiny Notes
-site_description: Psychometrics, CTT, IRT, CAT, CDM, and R Shiny learning notes.
+site_description: Psychometrics, CTT, IRT, local dependence, CAT, CDM, and R Shiny learning notes.
 site_author: Jingyi Guo
 site_url: https://place-bot.github.io/Psychometrics-and-R-Shiny/
 repo_url: https://github.com/place-bot/Psychometrics-and-R-Shiny
@@ -40,12 +40,12 @@ plugins:
           name: 中文
           default: true
           build: true
-          site_description: 心理测量、CTT、IRT、CAT、CDM 与 R Shiny 学习笔记。
+          site_description: 心理测量、CTT、IRT、局部依赖、CAT、CDM 与 R Shiny 学习笔记。
         - locale: en
           name: English
           build: true
           site_name: Psychometrics and R Shiny Notes
-          site_description: Learning notes on psychometrics, CTT, IRT, CAT, CDM, and R Shiny.
+          site_description: Learning notes on psychometrics, CTT, IRT, local dependence, CAT, CDM, and R Shiny.
           nav_translations:
             首页: Home
             心理测量基础: Basics of psychometrics
@@ -548,6 +548,19 @@ plugins:
             项目与部署: Item and deployment
             Day 6 实战项目: Day 6 practical project
             Day 7 部署上线: Day 7 Deployment and Online
+            研究问题、术语与贡献: Research question, terminology, and contribution
+            局部独立、列联表与两种典型依赖: Local independence, contingency tables, and two dependence patterns
+            结构、状态与过程: Structures, states, and processes
+            统一框架与两张分类表: Unified framework and two taxonomies
+            概率性 LD（一）：ULD、testlet 与 RD: "Probabilistic LD I: ULD, testlets, and RD"
+            概率性 LD（二）：OD、CD、Bahadur 与 copula: "Probabilistic LD II: OD, CD, Bahadur, and copulas"
+            确定性 LD：boundary mixture、SLD 与 KST-IRT: "Deterministic LD: boundary mixtures, SLD, and KST-IRT"
+            数值比较：LI、RD、OD、Θ-SLM 与 LKS: "Numerical comparisons: LI, RD, OD, Theta-SLM, and LKS"
+            参数解释与可识别性: Parameter interpretation and identifiability
+            多类别题、testlet 与知识结构: Polytomous items, testlets, and knowledge structures
+            新模型方向与全文结论: New model directions and conclusions
+            附录：SLD、Huynh 扩展与阈值失序: "Appendices: SLD, Huynh extension, and disordered thresholds"
+            符号与缩写表: Symbols and abbreviations
             质量与维护: Quality and maintenance
             内容核查记录: Content verification records
 
@@ -988,6 +1001,26 @@ nav:
               - 类别清单: cdm/papers/categories/continuous-extensions.md
           - HMM、网络与机器学习:
               - 类别清单: cdm/papers/categories/hmm-network-ml.md
+  - Local Dependence Modeling:
+      - 阅读导引: local-dependence-modeling/index.md
+      - 基础与统一框架:
+          - 研究问题、术语与贡献: local-dependence-modeling/01-question-terms-contribution.md
+          - 局部独立、列联表与两种典型依赖: local-dependence-modeling/02-local-independence-tables.md
+          - 结构、状态与过程: local-dependence-modeling/03-structures-and-processes.md
+          - 统一框架与两张分类表: local-dependence-modeling/04-unified-taxonomy.md
+      - 概率性局部依赖:
+          - 概率性 LD（一）：ULD、testlet 与 RD: local-dependence-modeling/05-probabilistic-uld-rd.md
+          - 概率性 LD（二）：OD、CD、Bahadur 与 copula: local-dependence-modeling/06-probabilistic-joint-models.md
+      - 确定性局部依赖:
+          - 确定性 LD：boundary mixture、SLD 与 KST-IRT: local-dependence-modeling/07-deterministic-models.md
+          - 数值比较：LI、RD、OD、Θ-SLM 与 LKS: local-dependence-modeling/08-numerical-comparisons.md
+          - 参数解释与可识别性: local-dependence-modeling/09-interpretation-identifiability.md
+          - 多类别题、testlet 与知识结构: local-dependence-modeling/10-polytomous-testlets.md
+      - 扩展与总结:
+          - 新模型方向与全文结论: local-dependence-modeling/11-new-models-conclusions.md
+          - 附录：SLD、Huynh 扩展与阈值失序: local-dependence-modeling/12-appendices.md
+          - 符号与缩写表: local-dependence-modeling/symbols.md
+          - 参考文献: local-dependence-modeling/references.md
   - CAT:
       - 总览: cat/index.md
       - Adaptive Testing with Self-Evaluation:
