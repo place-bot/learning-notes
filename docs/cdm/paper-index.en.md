@@ -118,7 +118,7 @@ For details, see [Total Progress of Intensive Reading of a Single Paper](papers/
 | --- | --- | --- | --- |
 |Intensive reading| Chen, Li, Liu & Ying (2017). Regularized latent class analysis with application in cognitive diagnosis. |estimate| `cdm/papers/chen-li-liu-ying-2017-regularized-lca.md` |
 |Intensive reading| Gu & Xu (2019). Learning attribute patterns in high-dimensional structured latent attribute models. |estimate| `cdm/papers/gu-xu-2019-high-dimensional-attribute-patterns.md` |
-|Intensive reading| Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. |estimate| `cdm/papers/gu-xu-2023-joint-mle-slam.md` |
+|Intensive reading| Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. |Estimation| [Multi-page tutorial](papers/gu-xu-2023/index.md) |
 |Intensive reading| Ma & Xu. Learning latent and hierarchical structures in cognitive diagnosis models. |estimate| `cdm/papers/ma-xu-latent-hierarchical-structures.md` |
 |main reading| Chen, Culpepper & Liang (2020). A sparse latent class model for cognitive diagnosis. |estimate| `cdm/papers/chen-culpepper-liang-2020-sparse-latent-class.md` |
 

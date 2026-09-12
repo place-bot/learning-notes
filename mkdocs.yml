@@ -47,6 +47,25 @@ plugins:
           site_name: Psychometrics and R Shiny Notes
           site_description: Learning notes on psychometrics, CTT, IRT, local dependence, CAT, CDM, and R Shiny.
           nav_translations:
+            Gu 与 Xu（2023）: Gu and Xu (2023)
+            为什么使用 joint MLE: Why joint MLE
+            SLAM 模型与符号: SLAM model and notation
+            联合与边际似然: Joint and marginal likelihood
+            标签与支持约束: Labels and support constraints
+            三组假设: Three assumptions
+            Theorem 1 与一致性: Theorem 1 and consistency
+            剖面似然证明: Profile likelihood proof
+            一致集中与最优性: Uniform concentration and optimality
+            从概率到结构恢复: From probabilities to structure
+            多参数证明: Multi-parameter proof
+            Theorems 2–3 与错设: Theorems 2–3 and misspecification
+            Gibbs 条件概率手推: Deriving Gibbs conditionals
+            ADG-EM 与补充算法: ADG-EM and supplementary algorithms
+            两阶段回归: Two-stage regression
+            TIMSS 真实测量: TIMSS application
+            可运行核验: Executable checks
+            原文版本核对: Source-version audit
+            总结与符号: Summary and notation
             首页: Home
             心理测量基础: Basics of psychometrics
             总览: Overview
@@ -1001,6 +1020,29 @@ nav:
                   - 参考文献: cdm/papers/xu-2017/references.md
           - 估计、正则化与计算:
               - 类别清单: cdm/papers/categories/estimation-computation.md
+              - Gu 与 Xu（2023）:
+                  - 阅读导引: cdm/papers/gu-xu-2023/index.md
+                  - 为什么使用 joint MLE: cdm/papers/gu-xu-2023/01-question.md
+                  - SLAM 模型与符号: cdm/papers/gu-xu-2023/02-model.md
+                  - 联合与边际似然: cdm/papers/gu-xu-2023/03-likelihood.md
+                  - 标签与支持约束: cdm/papers/gu-xu-2023/04-identification.md
+                  - 三组假设: cdm/papers/gu-xu-2023/05-assumptions.md
+                  - Theorem 1 与一致性: cdm/papers/gu-xu-2023/06-theorem1.md
+                  - 剖面似然证明: cdm/papers/gu-xu-2023/07-profile-proof.md
+                  - 一致集中与最优性: cdm/papers/gu-xu-2023/08-concentration.md
+                  - 从概率到结构恢复: cdm/papers/gu-xu-2023/09-structure-proof.md
+                  - 多参数证明: cdm/papers/gu-xu-2023/10-multiparameter-proof.md
+                  - Theorems 2–3 与错设: cdm/papers/gu-xu-2023/11-misspecification.md
+                  - Gibbs 条件概率手推: cdm/papers/gu-xu-2023/12-gibbs.md
+                  - ADG-EM 与补充算法: cdm/papers/gu-xu-2023/13-adg-em.md
+                  - 两阶段回归: cdm/papers/gu-xu-2023/14-two-stage.md
+                  - 主文模拟: cdm/papers/gu-xu-2023/15-simulations.md
+                  - TIMSS 真实测量: cdm/papers/gu-xu-2023/16-timss.md
+                  - 补充实验: cdm/papers/gu-xu-2023/17-supplement.md
+                  - 可运行核验: cdm/papers/gu-xu-2023/18-computational-checks.md
+                  - 原文版本核对: cdm/papers/gu-xu-2023/19-source-audit.md
+                  - 总结与符号: cdm/papers/gu-xu-2023/20-summary.md
+                  - 参考文献: cdm/papers/gu-xu-2023/references.md
           - 连续化与扩展模型:
               - 类别清单: cdm/papers/categories/continuous-extensions.md
           - HMM、网络与机器学习:

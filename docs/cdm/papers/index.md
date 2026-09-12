@@ -35,9 +35,9 @@ CDM
 | [CDM 核心模型](categories/core-models.md) | 10 | 2 | de la Torre (2009, 2011) 已完成首版 |
 | [Q 矩阵验证与学习](categories/q-matrix.md) | 14 | 7 | de la Torre (2008)、de la Torre & Chiu (2016)、Liu et al. (2012, 2013)、Chen et al. (2018)、Gu & Xu (2021)、Zhao & Huang (2019) 已完成首版 |
 | [可识别性理论](categories/identifiability.md) | 9 | 1 | Xu (2017) 已完成首版 |
-| [估计、正则化与计算](categories/estimation-computation.md) | 5 | 0 | 待逐篇制作 |
+| [估计、正则化与计算](categories/estimation-computation.md) | 5 | 1 | [Gu & Xu (2023)](gu-xu-2023/index.md) 中文首版完成；技术疑点单列 |
 | [连续化与扩展模型](categories/continuous-extensions.md) | 8 | 0 | 待逐篇制作 |
-| **合计** | **86** | **12** | 持续更新 |
+| **合计** | **86** | **13** | 持续更新 |
 
 ## 制作顺序
 

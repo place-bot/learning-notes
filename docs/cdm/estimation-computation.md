@@ -22,7 +22,7 @@
 | 阅读级别 | 论文 | 后续单篇笔记位置 | 读法 |
 | --- | --- | --- | --- |
 | 精读 | Gu & Xu (2019). Learning attribute patterns in high-dimensional structured latent attribute models. | `cdm/papers/gu-xu-2019-high-dimensional-attribute-patterns.md` | 高维 SLAM 中 significant attribute patterns 的选择一致性。 |
-| 精读 | Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | `cdm/papers/gu-xu-2023-joint-mle-slam.md` | 把 latent attributes 当 fixed unknown parameters 的核心文献。 |
+| 精读 | Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | [多页精读](papers/gu-xu-2023/index.md) | 将 A 作为固定未知参数；覆盖一致性证明、ADG-EM、两阶段回归与 TIMSS。 |
 | 精读 | Ma & Xu. Learning latent and hierarchical structures in cognitive diagnosis models. | `cdm/papers/ma-xu-latent-hierarchical-structures.md` | 同时学习 latent structure 和 hierarchy，后续需要补完整发表信息。 |
 
 ## 软件、贝叶斯与可扩展计算

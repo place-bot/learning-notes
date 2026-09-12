@@ -35,9 +35,9 @@ The page name will be adjusted according to the paper type:
 |[CDM core model](categories/core-models.md)| 10 | 2 |de la Torre (2009, 2011) first edition completed|
 |[Q Matrix Verification and Learning](categories/q-matrix.md)| 14 | 7 |de la Torre (2008), de la Torre & Chiu (2016), Liu et al. (2012, 2013), Chen et al. (2018), Gu & Xu (2021), Zhao & Huang (2019) The first edition has been completed|
 |[identifiability theory](categories/identifiability.md)| 9 | 1 |Xu (2017) Completed first edition|
-|[Estimation, regularization and calculation](categories/estimation-computation.md)| 5 | 0 |To be produced one by one|
+|[Estimation, regularization and calculation](categories/estimation-computation.md)| 5 | 1 |[Gu & Xu (2023)](gu-xu-2023/index.md): Chinese first edition; technical questions recorded separately|
 |[Continuous and extended model](categories/continuous-extensions.md)| 8 | 0 |To be produced one by one|
-|**Total**| **86** | **12** |Continuous updates|
+|**Total**| **86** | **13** |Continuous updates|
 
 ## Production order
 

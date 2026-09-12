@@ -118,7 +118,7 @@ BOBCAT 级别的多页面精读专题；反引号中的路径表示尚未建成�
 | --- | --- | --- | --- |
 | 精读 | Chen, Li, Liu & Ying (2017). Regularized latent class analysis with application in cognitive diagnosis. | 估计 | `cdm/papers/chen-li-liu-ying-2017-regularized-lca.md` |
 | 精读 | Gu & Xu (2019). Learning attribute patterns in high-dimensional structured latent attribute models. | 估计 | `cdm/papers/gu-xu-2019-high-dimensional-attribute-patterns.md` |
-| 精读 | Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | 估计 | `cdm/papers/gu-xu-2023-joint-mle-slam.md` |
+| 精读 | Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | 估计 | [多页精读](papers/gu-xu-2023/index.md) |
 | 精读 | Ma & Xu. Learning latent and hierarchical structures in cognitive diagnosis models. | 估计 | `cdm/papers/ma-xu-latent-hierarchical-structures.md` |
 | 主读 | Chen, Culpepper & Liang (2020). A sparse latent class model for cognitive diagnosis. | 估计 | `cdm/papers/chen-culpepper-liang-2020-sparse-latent-class.md` |
 

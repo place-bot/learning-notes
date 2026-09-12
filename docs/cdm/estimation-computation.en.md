@@ -22,7 +22,7 @@ This page presents estimation methods (estimation), regularization (regularizati
 |reading level|Paper|The position of subsequent single notes|pronunciation|
 | --- | --- | --- | --- |
 |Intensive reading| Gu & Xu (2019). Learning attribute patterns in high-dimensional structured latent attribute models. | `cdm/papers/gu-xu-2019-high-dimensional-attribute-patterns.md` |Consistent selection of significant attribute patterns in high-dimensional SLAM.|
-|Intensive reading| Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | `cdm/papers/gu-xu-2023-joint-mle-slam.md` |Treat latent attributes as the core documentation of fixed unknown parameters.|
+|Intensive reading| Gu & Xu (2023). A joint MLE approach to large-scale structured latent attribute analysis. | [Multi-page tutorial](papers/gu-xu-2023/index.md) |Joint estimation of A and Q; consistency, ADG-EM, two-stage regression, and TIMSS.|
 |Intensive reading| Ma & Xu. Learning latent and hierarchical structures in cognitive diagnosis models. | `cdm/papers/ma-xu-latent-hierarchical-structures.md` |At the same time, learn latent structure and hierarchy, and you will need to complete the complete publication information later.|
 
 ## Software, Bayesian and Scalable Computing
