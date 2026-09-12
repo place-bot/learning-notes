@@ -4,6 +4,7 @@ Run with the Codex PDF runtime. Images preserve layout; extracted text supports
 search and copying. This does not claim to recover the original LaTeX source.
 """
 from pathlib import Path
+import argparse
 import hashlib
 import html
 import json
@@ -70,12 +71,26 @@ def clean_text(page):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--notes-only', action='store_true', help='Update authored explanations without re-rendering source slides')
+    args = parser.parse_args()
     pages = ROOT / 'docs/llm/section1'
     assets = ROOT / 'docs/assets/llm/section1'
     pages.mkdir(parents=True, exist_ok=True)
     assets.mkdir(parents=True, exist_ok=True)
     manifest = []
     for slug, title, filename, count, overview in DECKS:
+        notes_file = ROOT / 'tools/llm_section1_notes' / f'{slug}.md'
+        explanation = notes_file.read_text(encoding='utf-8') if notes_file.exists() else '## 中文复习导读\n\n' + overview
+        if args.notes_only:
+            output = pages / f'{slug}.md'
+            current = output.read_text(encoding='utf-8')
+            header = current.split('\n## ', 1)[0]
+            marker = '## 全部 Beamer 页面'
+            appendix = current[current.index(marker):]
+            output.write_text(header + '\n\n' + explanation.rstrip() + '\n\n' + appendix, encoding='utf-8')
+            print(f'{slug}: explanations updated', flush=True)
+            continue
         source = SOURCE / filename
         reader = PdfReader(source)
         assert len(reader.pages) == count, filename
@@ -92,7 +107,7 @@ def main():
         content = [f'# {title}', '', '[返回 Section 1](index.md)', '',
                    f'授课课件：Meng Jiang · CSE 60556 · Fall 2026。来源 `{filename}`，共 **{count} 页**。', '',
                    f'[下载完整原课件 PDF](../../assets/llm/section1/{slug}/slides.pdf)', '',
-                   '## 中文复习导读', '', overview, '',
+                   explanation, '',
                    '## 全部 Beamer 页面', '',
                    '下面按原 PDF 页序完整呈现，包括目录、公式、图表、代码、例子与参考文献。点击图片可放大；每页下方可展开文字并搜索或复制。文字由 PDF 提取，公式和代码排版以原图及 PDF 为准；这里没有重建原始 LaTeX 源码。', '']
         for i, page in enumerate(reader.pages, 1):
@@ -105,7 +120,8 @@ def main():
         (pages / f'{slug}.md').write_text('\n'.join(content), encoding='utf-8')
         manifest.append({'source': filename, 'pages': count, 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'page': f'{slug}.md'})
         print(f'{slug}: {count} pages', flush=True)
-    (assets / 'sources.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
+    if not args.notes_only:
+        (assets / 'sources.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
 
 
 if __name__ == '__main__':
