@@ -615,6 +615,15 @@ extra_javascript:
 
 nav:
   - 首页: index.md
+  - LLM:
+      - 总览: llm/index.md
+      - Section 1:
+          - 章节总览: llm/section1/index.md
+          - Hugging Face 总览: llm/section1/01-hugging-face.md
+          - Masked LM 与 BERT: llm/section1/02-masked-lm.md
+          - Causal LM 与 GPT: llm/section1/03-causal-lm.md
+          - Scaling、ICL 与 MoE: llm/section1/04-scaling-icl-moe.md
+          - Seq2Seq 与 Instruction Tuning: llm/section1/05-instruction-tuning.md
   - 心理测量基础:
       - 总览: psychometrics/index.md
       - CTT 与 IRT 概览: ctt_irt_intro.md

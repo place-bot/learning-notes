@@ -1,0 +1,603 @@
+# Scaling Laws、ICL 与 MoE
+
+[返回 Section 1](index.md)
+
+授课课件：Meng Jiang · CSE 60556 · Fall 2026。来源 `Chapter1-L03 (L05).pdf`，共 **40 页**。
+
+[下载完整原课件 PDF](../../assets/llm/section1/04-scaling-icl-moe/slides.pdf)
+
+## 中文复习导读
+
+本讲讨论模型参数量 \(N\)、训练 token 数 \(D\) 和计算预算 \(C\) 的关系。课件以 \(C\approx6ND\) 作为训练 FLOPs 的近似，并比较 Kaplan 与 Chinchilla 对预算分配的建议。该式依赖计算口径与架构近似，不是所有训练过程的精确计费公式。
+
+GPT-3 部分区分 zero-shot、one-shot 和 few-shot。ICL 在 prompt 中加入示例，推理时不更新模型参数。Zero-shot 指没有任务示例，并不意味着不能给任务指令；原课件第 23 页的措辞有冲突，复习时按这个区分理解。
+
+Meta-learning 和 Bayesian inference 是理解 ICL 的研究视角。随后讨论 emergent abilities、MMLU，以及 MoE 如何通过 routing 只激活部分专家。要分清总参数与激活参数，并理解负载均衡、专家专门化、Mixtral 和 DeepSeekMoE 的设计。
+
+原课件第 40 页把 GPT-3 写成 GPT-2 的 10 倍；若比较 175B 与 1.5B 参数，约为 117 倍。这里保留原页，单独注明这个数值区别。
+
+## 全部 Beamer 页面
+
+下面按原 PDF 页序完整呈现，包括目录、公式、图表、代码、例子与参考文献。点击图片可放大；每页下方可展开文字并搜索或复制。文字由 PDF 提取，公式和代码排版以原图及 PDF 为准；这里没有重建原始 LaTeX 源码。
+
+### 001 · Scaling Laws and ”Large” Language Models
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-001.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-001.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Scaling Laws and ”Large” Language Models
+Meng Jiang 1
+1Department of Computer Science and Engineering (CSE)
+University of Notre Dame
+CSE 60556 LLM</pre>
+</details>
+
+### 002 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-002.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-002.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 003 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-003.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-003.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 004 · What are scaling laws?
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-004.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-004.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">What are scaling laws?
+Scaling laws are one of the most critical empirical findings in deep learning.
+N Model size, measured in parameter count
+D Training dataset size, usually measured in token count
+C Training compute in Floating Point Operations per sec. (FLOPs)
+L Test loss, also refer to training loss (they are strongly correlated)
+The training loss L decreases predictably as we scale up model size N,
+dataset size D, and compute C, following a power-law curve, which
+appears as a straight line on a log-log plot .
+Credit to: Scaling Law, Carefully ; Lil’Log
+https://lilianweng.github.io/posts/2026-06-24-scaling-laws/</pre>
+</details>
+
+### 005 · Power laws are everywhere
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-005.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-005.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Power laws are everywhere
+Image credit to https://brenocon.com/blog/wp-content/uploads/
+2009/05/picture-4.png</pre>
+</details>
+
+### 006 · Why scaling laws are important for deep learning?
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-006.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-006.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Why scaling laws are important for deep learning?
+This predictability makes scaling laws highly valuable in practice.
+A common workflow is to fit scaling laws on a handful of small runs and
+then extrapolate to estimate the token and compute requirements for
+larger models , e.g.,
+from Kaplan et al. 2020 (Scaling Laws for Neural Language Models):
+L(N, D) =
+[( a
+N
+) α
+β
++ b
+D
+]β
+, (1)
+C ≈ 6 × N × D. (2)</pre>
+</details>
+
+### 007 · Scaling Laws in Deep Learning
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-007.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-007.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Scaling Laws in Deep Learning
+Language modeling:
+ Speech modeling:
+The losses of small models plateau when training data becomes large.
+from Hestness et al. 2017 : Deep Learning Scaling is Predictable,
+Empirically</pre>
+</details>
+
+### 008 · Scaling Laws: 3D Landscape
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-008.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-008.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Scaling Laws: 3D Landscape
+Modeling generalization error ˆL as a joint
+function of both model size N and data size
+D, across a diverse set of architectures
+(ResNet, LSTM, Transformer) and
+optimizers (Adam, SGD variants):
+ˆL(D, N) ≈ A
+Nα + B
+Dβ + E, (3)
+where A &gt; 0, B &gt; 0, α ≥ 0, β ≥ 0 are scalar
+constants and E is not dependent on either
+N or D.
+Wiki103 error landscape:
+from Rosenfeld et al. 2019 : A Constructive Prediction of the
+Generalization Error Across Scales</pre>
+</details>
+
+### 009 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-009.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-009.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 010 · Kaplan et al. ’s Scaling Laws
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-010.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-010.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Kaplan et al. ’s Scaling Laws
+The loss L scales as a power law with N, D, and C individually:
+with model size ranging from 768M to 1.5B non-embedding parameters
+and dataset size from 22M to 23B tokens. All training used a learning rate
+schedule with a 3,000 step linear warmup, followed by a decay to zero.</pre>
+</details>
+
+### 011 · Kaplan et al. ’s Scaling Laws
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-011.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-011.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Kaplan et al. ’s Scaling Laws
+The loss L scales as a power law with N, D, and C individually:
+with model size ranging from 768M to 1.5B non-embedding parameters
+and dataset size from 22M to 23B tokens. All training used a learning rate
+schedule with a 3,000 step linear warmup, followed by a decay to zero.</pre>
+</details>
+
+### 012 · Kaplan et al. ’s Scaling Laws
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-012.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-012.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Kaplan et al. ’s Scaling Laws
+Observation: For a 10 x increase in compute C, scale the model size N by
+5.5x but the training tokens by only 1 .8x. And C ∝ N × D.
+Suggestion: Given a fixed compute budget, it is more eﬀicient to train a
+very large model and stop before convergence than to train a smaller
+model all the way to convergence.
+Chinchilla scaling laws disagree: Kaplan et al. overestimated the optimal
+model size as their fitted exponent was larger, leaving large models badly
+undertrained.
+from Hoffmann et al. 2022 : Training Compute-Optimal Large Language
+Models</pre>
+</details>
+
+### 013 · Prove C ≈ 6ND
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-013.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-013.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Prove C ≈ 6ND
+Let’s approximate the number of training FLOPs needed based on N and
+D. Each multiply-add is counted as ∼ 2 FLOPs.
+Operations Parameters FLOPs per Token
+Embed (nvocab+nctx)dmodel 4dmodel
+Attention: QKV nlayerdmodel· 3dattn 2nlayerdmodel· 3dattn
+Attention: Mask − 2nlayernctxdattn
+Attention: Project nlayerdattndmodel 2nlayerdattndembd
+Feedforward nlayer· 2dmodeldff 2nlayer· 2dmodeldff
+De-embed − 2dmodelnvocab
+Total (non-embedding)N=2dmodelnlayer(2dattn+dff) Cforward=2N+2nlayernctxdattn
+We count backward-pass FLOPs as twice as the forward-pass FLOPs,
+because backpropagation runs two matrix multiplications, for gradients
+w.r.t. the input activations and weights. The training FLOPs per token
+are approximately 6 N. The total FLOPs for training over D tokens are
+C ≈ 6ND.</pre>
+</details>
+
+### 014 · Chinchilla Scaling Laws: Allocate resources given C ≈ 6ND
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-014.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-014.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Chinchilla Scaling Laws: Allocate resources given C ≈ 6ND
+When are have only limited FLOPs (a given number of GPUs running for a
+given period of time), how should we choose between more data tokens
+and more model parameters?
+Nopt(C), Dopt(C) = arg min s.t.FLOPs(N,D)=CˆL(N, D). (4)
+The experiments scanned over 400 models, with sizes from 70M to over
+16B parameters (including embedding parameters ) and training tokens
+from 5B to 500B.
+The experiments were under the assumption that every training tokekn is
+unique. All runs used a cosine learning-rate schedule decaying by 10 x over
+the training horizon.
+from Hoffmann et al. 2022 : Training Compute-Optimal Large Language
+Models</pre>
+</details>
+
+### 015 · Chinchilla Scaling Laws: Learning from Statistics
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-015.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-015.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Chinchilla Scaling Laws: Learning from Statistics</pre>
+</details>
+
+### 016 · Chinchilla Scaling Laws: Design
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-016.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-016.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Chinchilla Scaling Laws: Design
+Under the same compute budget as Gopher, Chinchilla was 4 x smaller but
+trained on roughly 4 x more tokens and it outperformed Gopher:
+Model Size (# Parameters)Training Tokens
+LaMDA (Thoppilan et al. 2022) 137 billion 168 billion
+GPT-3 (Brown et al. 2020) 175 billion 300 billion
+Jurassic (Lieber et al. 2021) 178 billion 300 billion
+Gopher (Rae et al. 2021) 280 billion 300 billion
+MT-NLG 530B (Smith et al. 2022) 530 billion 270 billion
+Chinchilla(Hoffmann et al. 2022) 70 billion 1.4 trillion</pre>
+</details>
+
+### 017 · Reconciling Kaplan and Chinchilla
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-017.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-017.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Reconciling Kaplan and Chinchilla
+The Chinchilla scaling laws disagree with Kaplan et al. as follows:
+Instead of ”grow the model faster than the data” ( Nopt ∝ C0.73), for
+every doubling of model size, you should also double the number of
+training tokens ( Nopt ∝ C0.5).
+Instead of ”train a big model and stop before convergence,” you
+should train a smaller model on more data.
+Why do they disagree so much?
+Kaplan et al. experimented mostly on small models.
+Embedding parameters count matters for small models.</pre>
+</details>
+
+### 018 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-018.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-018.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 019 · Applying Scaling Laws: Model Size and Datasets
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-019.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-019.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Applying Scaling Laws: Model Size and Datasets
+from Brown et al. 2020 : Language Models are Few-Shot Learners</pre>
+</details>
+
+### 020 · Applying Scaling Laws: Crazy FLOPs
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-020.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-020.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Applying Scaling Laws: Crazy FLOPs</pre>
+</details>
+
+### 021 · Smooth Scaling on Language Modeling
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-021.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-021.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Smooth Scaling on Language Modeling</pre>
+</details>
+
+### 022 · In-Context Learning (ICL)
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-022.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-022.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">In-Context Learning (ICL)
+ICL: The ability of LMs to learn tasks directly from examples provided in
+the input prompt, without parameter updates.
+Features:
+Emerges in large scale models only
+Works for many tasks (translation, math, classification, etc.)</pre>
+</details>
+
+### 023 · In-Context Learning (ICL)
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-023.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-023.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">In-Context Learning (ICL)
+Zero-shot: model relies on instructions alone, no instructions provided
+One-shot: model learns from one example
+Few-shot: model learns from multiple examples
+Performance on removing random symbols from a word:</pre>
+</details>
+
+### 024 · ICL emerges in large models, aggregated across 42 tasks
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-024.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-024.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">ICL emerges in large models, aggregated across 42 tasks</pre>
+</details>
+
+### 025 · On Open-Domain Question Answering: TriviaQA
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-025.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-025.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">On Open-Domain Question Answering: TriviaQA</pre>
+</details>
+
+### 026 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-026.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-026.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 027 · Why ICL works: Meta-Learning Hypothesis
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-027.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-027.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Why ICL works: Meta-Learning Hypothesis
+ICL works because LLMs behave like meta-learners - they implicitly
+perform fast adaptation by simulating gradient descent updates
+within their forward pass.
+Attention layers can internally re-weight representations of tokens in
+the hidden states (the activations that flow through the network).
+This redistribution looks similar to doing a few steps of gradient
+descent on demo examples.
+from Brown et al. 2020 : Language Models are Few-Shot Learners</pre>
+</details>
+
+### 028 · Why ICL works: Bayesian Inference View
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-028.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-028.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Why ICL works: Bayesian Inference View
+The prompt examples act as evidence about which task is being
+performed.
+The model narrows down its ”hypothesis space” using the prior
+knowledge (inferred from prompt examples).
+Output is a posterior guess: the most probable continuation given the
+observed evidence.
+p(output|prompt) =
+∫
+concept
+p(output|concept, prompt)
+·p(concept|prompt) · d(concept) (5)
+from Xie et al. 2021 : An Explanation of In-Context Learning as Implicit
+Bayesian Inference</pre>
+</details>
+
+### 029 · Emergent Abilities of LARGE Language Models
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-029.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-029.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Emergent Abilities of LARGE Language Models
+Emergent abilities were not present in smaller models but are present in
+larger models. Thus, they cannot be predicted simply by extrapolating the
+performance of smaller models.
+from Wei et al. 2022 : Emergent Abilities of Large Language Models</pre>
+</details>
+
+### 030 · Massive Multitask Language Understanding (MMLU)
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-030.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-030.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Massive Multitask Language Understanding (MMLU)
+The benchmark covers 57 subjects across STEM, the humanities, the
+social sciences, and more. It ranges in diﬀiculty from an elementary
+level to an advanced professional level, and it tests both world
+knowledge and problem solving ability.
+Few-shot models up to 13B parameters achieve random chance
+performance of 25% accuracy, but the 175B parameter GPT-3 model
+reaches a much higher 43.9% accuracy.
+Unlike human professionals GPT-3 does not excel at any single
+subject. Instead, we find that performance is lopsided, with GPT-3
+having almost 70% accuracy for its best subject but near-random
+performance for several other subjects.
+from Hendrycks et al. 2021 : Measuring Massive Multitask Language
+Understanding</pre>
+</details>
+
+### 031 · Emergent Abilities: More Results
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-031.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-031.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Emergent Abilities: More Results</pre>
+</details>
+
+### 032 · Table of Contents
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-032.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-032.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Table of Contents
+1 Early Scaling Laws
+2 Scaling Laws at Larger Scales
+3 GPT-3
+4 Insights
+5 Mixture of Experts (MoE)</pre>
+</details>
+
+### 033 · Why MoE?
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-033.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-033.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Why MoE?
+Challenge: Model strength increases with more parameters, but this also
+leads to an increase in compute.
+Goal: To increase parameters without increasing compute.
+Idea: Replace the feed-forward neural (FFN) layers with many FFNs and a
+selector layer (or ”routing algorithm”).
+from Jiang et al. 2024 : Mixtral of Experts (known as Mixtral 8x7B)
+from Dai et al. 2024 : DeepSeekMoE: Towards Ultimate Expert
+Specialization in Mixture-of-Experts Language Models</pre>
+</details>
+
+### 034 · MoE: Implementation
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-034.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-034.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">MoE: Implementation
+Routing algorithms: Decides which experts are activated for a given
+input (top- k routing, learned gates, fixed routing, RL-based routing);
+Load balancing: Must ensure that each expert is used evenly to avoid
+imbalance (auxiliary losses, noise injection, capacity constraints);
+Total parameters: All the weights stored in the model;
+Active parameters: The subset of those weights that are actually used
+in computing a single forward pass. In dense models, active
+parameters = total parameters;
+Higher expert count leads to higher total parameter count, but also
+harder routing and balancing;
+Larger expert size leads to more representational power, but uses
+more memory/compute;
+Frequency: Determines where in the model MoEs are inserted (every
+layer, every other layer, etc.)</pre>
+</details>
+
+### 035 · Mixtral Model Architecture
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-035.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-035.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Mixtral Model Architecture
+Suppose the MoE model has n expert networks {E0, . . . ,Ei, . . . ,En−1}.
+Given input x,
+G(x)i is the n-dim. output of the gating network for the i-th expert:
+G(x) := softmax(topK(x · Wg)); (6)
+Ei(x) is the output of the i-th expert network.
+The output is the weighted sum of the outputs of the expert networks:
+n−1∑
+i=0
+G(x)i · Ei(x). (7)
+If the gating vector is sparse, we can avoid computing the outputs of
+experts whose gates are zero.</pre>
+</details>
+
+### 036 · Mixtral Results
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-036.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-036.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Mixtral Results
+Mixtral outperforms or matches Llama-2 70B performance on popular
+benchmarks while using 5 x fewer active parameters during inference.
+from Jiang et al. 2024 : Mixtral of Experts (known as Mixtral 8x7B)</pre>
+</details>
+
+### 037 · DeepSeekMoE Results
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-037.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-037.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">DeepSeekMoE Results
+from Dai et al. 2024 : DeepSeekMoE: Towards Ultimate Expert
+Specialization in Mixture-of-Experts Language Models</pre>
+</details>
+
+### 038 · Challenges in MoE
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-038.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-038.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Challenges in MoE
+Knowledge Hybridity: Existing MoE practices often employ a limited
+number of experts (e.g., 8 or 16), and thus tokens assigned to a
+specific expert will be likely to cover diverse knowledge. Consequently,
+the designated expert will intend to assemble vastly different types of
+knowledge in its parameters, which are hard to utilize simultaneously.
+Knowledge Redundancy: Tokens assigned to different experts may
+require common knowledge. As a result, multiple experts may
+converge in acquiring shared knowledge in their respective
+parameters, thereby leading to redundancy in expert parameters.
+These issues collectively hinder the expert specialization in existing
+MoE practices, preventing them from reaching the theoretical
+upper-bound performance of MoE models.</pre>
+</details>
+
+### 039 · DeepSeekMoE Innovations
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-039.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-039.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">DeepSeekMoE Innovations
+Fine-Grained Expert Segmentation: While maintaining the
+number of parameters constant, segment the experts into a finer
+grain by splitting the FFN intermediate hidden dimension. It allows
+diverse knowledge to be decomposed more finely and be learned more
+precisely into different experts, where each expert will retain a higher
+level of specialization. The flexibility in combining activated experts
+contributes to a more accurate and targeted knowledge acquisition .
+Shared Expert Isolation: Isolate certain experts to serve as shared
+experts that are always activated, aiming at capturing and
+consolidating common knowledge across varying contexts. Through
+compressing common knowledge into these shared experts,
+redundancy among other routed experts will be mitigated. This can
+enhance the parameter eﬀiciency and ensure that each routed expert
+retains specialized by focusing on distinctive aspects.</pre>
+</details>
+
+### 040 · Takeaways
+
+[![Beamer 原页](../../assets/llm/section1/04-scaling-icl-moe/page-040.webp){ loading=lazy }](../../assets/llm/section1/04-scaling-icl-moe/page-040.webp)
+
+<details><summary>展开本页文字</summary>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Takeaways
+Scaling laws exist in deep learning.
+Scaling laws are found in language models: Kaplan et al. vs
+Chinchilla. It’s about Compute, Data, and Model size.
+GPT-3 was 10 x larger than GPT-2. In-context learning abilities
+emerged: zero-shot, one-shot, and few-shot generalization.
+Mixture-of-Experts architecture has been adopted in many advanced
+models: Mixtral, DeepSeekMoE, Gemma4, etc.</pre>
+</details>
