@@ -52,6 +52,8 @@ g_j^{1-\eta_{ij}}
 
 ## 推荐阅读顺序
 
+计算主线已补全：先读第11章的数字例子，再读第5章的完整数据目标、求导与 EM 单调性；第6章展开得分、OPG、矩阵求逆及分类差异。运行 tools/de_la_torre_2009_em_trace.py 可核对中间量。
+
 1. [问题、对象与模型假设](01-problem-and-model.md)：CDM 为什么提供属性画像，DINA 需要哪些输入。
 2. [Q 矩阵与理想反应](02-q-matrix-and-ideal-response.md)：逐字母解释 \(\alpha,q,\eta\) 和 AND gate。
 3. [反应概率与似然](03-response-function-and-likelihood.md)：guess、slip、局部独立、条件似然与边际似然。
@@ -62,7 +64,7 @@ g_j^{1-\eta_{ij}}
 8. [模拟实验](08-simulation.md)：完整实验设计、Q 矩阵、运行设置和 Table 2 结果。
 9. [分数减法真实数据](09-fraction-subtraction.md)：2,144 名学生、15 题、Table 3--4 和结果解释。
 10. [代码实现精读](10-code-implementation.md)：原始 Ox 实现状态与本站 EM 复现脚本逐段映射。
-11. [手算一个 EM 的 E 步](11-worked-example.md)：\(K=2\) 时逐类计算似然、后验与 MAP 属性模式。
+11. [手算两轮完整 EM](11-worked-example.md)：四名学生的全部似然、后验、期望计数、g/s 更新、第二轮后验与似然检查。
 12. [限制与未来工作](12-limitations-and-future.md)：固定 Q、指数复杂度、固定先验和分类研究问题。
 13. [符号表](13-symbols.md)：统一查询全文符号、维度和代码对象。
 14. [总结与后续阅读](14-summary.md)：论文贡献、结论强度以及通向 G-DINA 的路线。

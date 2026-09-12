@@ -176,3 +176,26 @@ m=\max_l a_l.
 \]
 
 This is a numerical implementation detail. The original article uses a product formula to express the statistical model.
+
+## Conditional likelihood, weighted likelihood, marginal probability
+
+For response101 and candidate10 in the worked example:
+
+\[
+L_i(10)=.2025,\quad \pi_{10}L_i(10)=.050625,\quad
+m_i=\sum_l\pi_lL_i(l)=.102625.
+\]
+
+The posterior is .050625/.102625=.493300853. The unweighted likelihood sum .4105 is not the marginal; the prior factor .25 cancels for posterior normalization but not for computing \(\log m_i\).
+
+Multiply across items conditional on one shared profile, then sum across mutually exclusive profiles. Multiplying itemwise marginal probabilities instead would effectively allow a new profile for every item.
+
+With \(a_l=\log\pi_l+\log L_i(l)\) and \(b=\max_la_l\),
+
+\[
+\sum_le^{a_l}=e^b\sum_le^{a_l-b}.
+\]
+
+Thus posterior normalization can use \(e^{a_l-b}\). Values -1000,-1001 become 1 and \(e^{-1}\) after shifting, preserving posterior probabilities while preventing underflow.
+
+A genuinely zero prior corresponds to log weight \(-\infty\). The teaching program floors prior probabilities, so forbidden profiles require an explicit implementation change rather than this numerical floor.

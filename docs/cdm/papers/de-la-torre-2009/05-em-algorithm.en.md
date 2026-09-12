@@ -176,3 +176,70 @@ O(IJ2^K).
 \]
 
 This explains the paper's concerns about the larger \(K\). The M-step aggregation expectation count also relies on the same posterior matrix, but is generally less expensive than the E-step likelihood calculation.
+
+## Derive the auxiliary objective rather than jump to the ratios
+
+Let \(\beta=(g_1,s_1,\ldots,g_J,s_J)\). The complete-data log likelihood is
+
+\[
+\ell_c=\sum_{il}Z_{il}\left[\log\pi_l+
+\sum_j\{X_{ij}\log P_j(l)+(1-X_{ij})\log(1-P_j(l))\}\right].
+\]
+
+Take its conditional expectation under the old parameters. Linearity replaces \(Z_{il}\) with \(w_{il}^{(t)}\), giving the auxiliary objective \(\mathcal Q\), distinct from the item Q-matrix.
+
+Collecting terms for item j yields
+
+\[
+\begin{aligned}
+\mathcal Q_j={}&R_j^{(0)}\log g_j+
+(I_j^{(0)}-R_j^{(0)})\log(1-g_j)\\
+&+R_j^{(1)}\log(1-s_j)+
+(I_j^{(1)}-R_j^{(1)})\log s_j.
+\end{aligned}
+\]
+
+Counts use the old posterior and are constants throughout this M-step. Therefore
+
+\[
+\frac{\partial\mathcal Q_j}{\partial g_j}
+=\frac{R_j^{(0)}}{g_j}
+-\frac{I_j^{(0)}-R_j^{(0)}}{1-g_j}=0.
+\]
+
+Multiply by \(g_j(1-g_j)\) and cancel cross terms:
+
+\[
+R_j^{(0)}-g_jI_j^{(0)}=0.
+\]
+
+Likewise,
+
+\[
+-\frac{R_j^{(1)}}{1-s_j}
++\frac{I_j^{(1)}-R_j^{(1)}}{s_j}=0
+\]
+
+reduces to \(I_j^{(1)}-R_j^{(1)}-s_jI_j^{(1)}=0\).
+These give the reported ratios. The second derivatives are nonpositive; an empty group is undefined, while all-correct/all-wrong groups may attain boundary maxima.
+
+Do not differentiate the old posterior within the M-step. Replacing soft weights by MAP assignments is also a different algorithm.
+
+## Derive the optional mixing proportions
+
+With \(n_l=\sum_iw_{il}^{(t)}\), maximize
+\(\sum_ln_l\log\pi_l+\lambda(\sum_l\pi_l-1)\).
+Stationarity gives \(\pi_l=-n_l/\lambda\); normalization and \(\sum_ln_l=I\) give \(\lambda=-I\). Thus \(\pi_l=n_l/I\). This is optional, not part of the fixed-prior branch.
+
+## Why exact EM is monotone
+
+For each student, Jensen gives
+
+\[
+\log\sum_lw^t_{il}\frac{\pi_lL_i(l;\beta)}{w^t_{il}}
+\ge\sum_lw^t_{il}\log\frac{\pi_lL_i(l;\beta)}{w^t_{il}}.
+\]
+
+Equality holds at the old parameters with the exact posterior. Increasing this lower bound in the M-step cannot decrease the observed likelihood. This requires compatible objectives and constraints; it does not guarantee global optimality.
+
+All items use the same old W within one iteration. Recompute W and the likelihood after the final parameter update, including when reporting nonconvergence at an iteration cap.

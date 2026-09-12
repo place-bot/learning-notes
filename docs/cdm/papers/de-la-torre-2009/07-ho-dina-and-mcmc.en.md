@@ -143,3 +143,20 @@ Therefore, this 2009 paper alone cannot reconstruct the original MCMC implementa
 |Can represent complex or negative dependencies|Shared positive slopes mainly express forward dependence|
 
 The two item parameters in Table 4 are close, which only shows that the HO constraint is more reasonable for the fractional subtraction data; it does not establish universal equivalence for all CDM data.
+
+## A numerical conditional-profile calculation
+
+At \(\theta=0,\lambda_{01}=-1,\lambda_{02}=0,\lambda_1=1\), the mastery probabilities are .268941 and .5. The conditional profile probabilities for00,01,10,11 are approximately .365529,.365529,.134471,.134471.
+
+These are not population proportions: integrate over the normal ability distribution. A quadrature approximation would use
+
+\[
+\pi_l\approx\sum_m v_m\prod_kp_k(\theta_m)^{\alpha_{lk}}
+(1-p_k(\theta_m))^{1-\alpha_{lk}},
+\]
+
+with normal-integration nodes and weights. This illustrates integration, not the paper's particular MCMC implementation.
+
+The posterior factors as
+\(p(X\mid A,g,s,Q)p(A\mid\theta,\lambda)p(\theta)p(\lambda,g,s)\).
+A sampler additionally needs priors, constraints, update blocks, proposals, and tuning. The 2009 paper does not uniquely specify them; do not invent missing settings and label them its original algorithm.

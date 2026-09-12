@@ -147,3 +147,13 @@ So the larger \(g_j\) may come from:
 - Other model mismatches.
 
 Parameter names alone cannot identify psychological processes.
+
+## Arrays before the first iteration
+
+For profiles00,01,10,11 and item rows10,01,11, precompute
+
+\[
+E=\begin{pmatrix}0&0&0\\0&1&0\\1&0&0\\1&1&1\end{pmatrix}.
+\]
+
+Its rows are candidate profiles, not students. E is \(L\times J\), where \(L=2^K\); it stays fixed when Q is fixed. The success-probability array P is also \(L\times J\), but changes with g/s. W is the \(I\times L\) posterior array and changes every E-step. Enumerating E does not mean the students' actual profiles are known.

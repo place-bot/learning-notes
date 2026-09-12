@@ -62,7 +62,7 @@ Allow students who have not reached the ideal state to guess correctly and stude
 8. [Simulation experiment](08-simulation.md): complete experimental design, Q matrix, running settings and Table 2 results.
 9. [Real data of fraction subtraction](09-fraction-subtraction.md): 2,144 students, 15 questions, Table 3--4 and result explanation.
 10. [Code Implementation Intensive Reading](10-code-implementation.md): The original Ox implementation status is mapped piece by piece with the EM recurrence script of this site.
-11. [Hand-calculate the E-step](11-worked-example.md) of an EM: \(K=2\) to calculate the likelihood, posterior and MAP attribute profile class by class.
+11. [Two complete EM iterations](11-worked-example.md): four students, all class likelihoods, posteriors, expected counts, g/s updates, and likelihood checks.
 12. [Limitations and Future Work](12-limitations-and-future.md): Fixed Q, exponential complexity, fixed prior and classification research problem.
 13. [Symbol table](13-symbols.md): Unified query of full-text symbols, dimensions and code objects.
 14. [Summary and follow-up reading](14-summary.md): Paper contribution, strength of conclusions, and route to G-DINA.

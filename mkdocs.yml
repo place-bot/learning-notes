@@ -185,7 +185,7 @@ plugins:
             模拟实验: Simulation experiment
             分数减法真实数据: fraction subtraction real data
             代码实现精读: Code implementation of in-depth reading
-            手算 EM 的 E 步: worked calculation EM's E step
+            手算两轮完整 EM: Two complete EM iterations
             限制与未来工作: Limitations and future work
             问题与框架全貌: The full picture of the problem and the framework
             约化属性模式与偏序: Reduced attribute profiles and partial orders
@@ -765,7 +765,7 @@ nav:
                   - 模拟实验: cdm/papers/de-la-torre-2009/08-simulation.md
                   - 分数减法真实数据: cdm/papers/de-la-torre-2009/09-fraction-subtraction.md
                   - 代码实现精读: cdm/papers/de-la-torre-2009/10-code-implementation.md
-                  - 手算 EM 的 E 步: cdm/papers/de-la-torre-2009/11-worked-example.md
+                  - 手算两轮完整 EM: cdm/papers/de-la-torre-2009/11-worked-example.md
                   - 限制与未来工作: cdm/papers/de-la-torre-2009/12-limitations-and-future.md
                   - 符号表: cdm/papers/de-la-torre-2009/13-symbols.md
                   - 总结与后续阅读: cdm/papers/de-la-torre-2009/14-summary.md

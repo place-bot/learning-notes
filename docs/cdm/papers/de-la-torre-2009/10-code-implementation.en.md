@@ -165,3 +165,15 @@ The script doesn't have:
 - Replicate unknown original Ox internals.
 
 Its purpose is to turn appendix formulas into checkable execution paths.
+
+## Deterministic step-by-step trace
+
+Run Python3 on tools/de_la_torre_2009_em_trace.py. It reuses the existing E/M functions and prints every intermediate quantity in the four-student worked example.
+
+Independent checks compare direct Bayes products with log-sum-exp, verify group-count conservation and update ratios, compare six score derivatives with finite differences, and check ten likelihood-nondecreasing iterations. It also confirms that four students cannot generate a full-rank six-parameter OPG matrix.
+
+The array identity \(H=WE\), with dimensions \((I\times L)(L\times J)\), gives item-specific posterior high-state probabilities. Summing H and X-weighted H produces the four counts per item, equivalent to the existing nested loops.
+
+Keep one old W throughout each M-step and recompute it for final output. Never round internal values, silently update a fixed prior, treat an iteration cap as convergence, or turn hard MAP groups into an alleged EM E-step.
+
+The existing main script remains educational: zero priors are floored, empty groups lack dedicated handling, missing responses are unsupported, and its item-only information calculation does not automatically propagate uncertainty in estimated mixing proportions.

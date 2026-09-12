@@ -10,7 +10,7 @@ The parameter point is estimated as
 (\widehat g_1,\widehat s_1,\ldots,\widehat g_J,\widehat s_J)^\mathsf T.
 \]
 
-The paper uses the observation information matrix of marginal log likelihood to approximate covariance:
+The appendix uses a marginal-score outer-product approximation to information, then approximates covariance. This is not a finite-sample identity with the exact negative Hessian:
 
 \[
 \widehat{\operatorname{Cov}}
@@ -99,7 +99,7 @@ This will produce a
 2J\times2J
 \]
 
-The information matrix contains the covariance between different item parameters due to attribute profile uncertainty.
+The information matrix contains cross-parameter information terms; its inverse, not the information matrix itself, approximates covariance.
 
 ## Why can’t we just use two binomial distribution formulas?
 
@@ -173,3 +173,44 @@ w_{il}.
 \]
 
 This article mainly studies the calibration of item parameters. The discussion section clearly lists pattern identifiability, classification methods, test length, and Q matrix specifications as follow-up issues that require systematic study.
+
+## Deriving the marginal score
+
+For fixed \(\pi\), \(m_i=\sum_l\pi_lL_i(l)\), and
+
+\[
+\partial_{\beta_r}\log m_i
+=\sum_l\frac{\pi_lL_i(l)}{m_i}\partial_{\beta_r}\log L_i(l).
+\]
+
+The weights are exactly the posterior. Group0 contributes to g, group1 to s, with the negative derivative of \(\log(1-s)\) accounted for.
+
+At the initial parameters, student1 of the worked example has the interleaved score
+
+\[
+u_i\approx(.669915,-.962241,-.669915,1.985384,2.509135,-.438490).
+\]
+
+For example \(u_{g_1}=(1-.866017052)(1-.2)/[.2(.8)]\).
+Compute each student's outer product and then sum, not the outer product of the summed scores. Standard errors require evaluation at fitted parameters, not these illustrative initial ones.
+
+## Three information concepts
+
+The exact observed information is the negative Hessian. OPG is \(\sum_i u_i u_i^\mathsf T\). Their expectations agree under appropriate regularity and correct specification, but the two finite-sample matrices generally differ. Appendix A12–A15 uses an expectation argument followed by an empirical approximation.
+
+For the purely illustrative matrix
+
+\[
+I=\begin{pmatrix}4&1\\1&9\end{pmatrix},\qquad
+I^{-1}=\frac1{35}\begin{pmatrix}9&-1\\-1&4\end{pmatrix},
+\]
+
+SEs are \(\sqrt{9/35}\) and \(\sqrt{4/35}\), not the reciprocal square roots of I's diagonal. Invert the whole matrix first.
+
+The four-person example has six item parameters and OPG rank at most4, so it cannot provide six valid OPG SEs. A numerical ridge is not a substitute for identified information.
+
+If mixing proportions are estimated, uncertainty should also account for their \(L-1\) free parameters. The existing item-only script does not do this automatically.
+
+## MAP and marginal decisions differ
+
+For posterior \((.35,.25,.10,.30)\) in order00,01,10,11, MAP is00, while marginal mastery probabilities .40,.55 produce01 at a .5 threshold. Whole-profile and attribute-wise decisions target different losses. Tie handling must also be specified.
